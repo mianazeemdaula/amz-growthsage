@@ -1,0 +1,164 @@
+{
+  "public/fonts/Gilroy-Bold.ttf": {
+    "file": "assets/Gilroy-Bold-ed3a99e5.ttf",
+    "src": "public/fonts/Gilroy-Bold.ttf"
+  },
+  "public/fonts/Gilroy-Bold.woff": {
+    "file": "assets/Gilroy-Bold-79d5defd.woff",
+    "src": "public/fonts/Gilroy-Bold.woff"
+  },
+  "public/fonts/Gilroy-Medium.ttf": {
+    "file": "assets/Gilroy-Medium-ce8d455b.ttf",
+    "src": "public/fonts/Gilroy-Medium.ttf"
+  },
+  "public/fonts/Gilroy-Medium.woff": {
+    "file": "assets/Gilroy-Medium-a19283a4.woff",
+    "src": "public/fonts/Gilroy-Medium.woff"
+  },
+  "public/fonts/Gilroy-Regular.ttf": {
+    "file": "assets/Gilroy-Regular-8bbb8f0f.ttf",
+    "src": "public/fonts/Gilroy-Regular.ttf"
+  },
+  "public/fonts/Gilroy-Regular.woff": {
+    "file": "assets/Gilroy-Regular-9f2ef335.woff",
+    "src": "public/fonts/Gilroy-Regular.woff"
+  },
+  "public/fonts/Gilroy-SemiBold.ttf": {
+    "file": "assets/Gilroy-SemiBold-32eb47df.ttf",
+    "src": "public/fonts/Gilroy-SemiBold.ttf"
+  },
+  "public/fonts/Gilroy-SemiBold.woff": {
+    "file": "assets/Gilroy-SemiBold-6a156519.woff",
+    "src": "public/fonts/Gilroy-SemiBold.woff"
+  },
+  "public/fonts/Gilroy-Thin.ttf": {
+    "file": "assets/Gilroy-Thin-0bf559df.ttf",
+    "src": "public/fonts/Gilroy-Thin.ttf"
+  },
+  "public/fonts/Gilroy-Thin.woff": {
+    "file": "assets/Gilroy-Thin-03b701cf.woff",
+    "src": "public/fonts/Gilroy-Thin.woff"
+  },
+  "public/images/all-img/404-bg.png": {
+    "file": "assets/404-bg-d684291e.png",
+    "src": "public/images/all-img/404-bg.png"
+  },
+  "public/images/all-img/bb.png": {
+    "file": "assets/bb-16509ad6.png",
+    "src": "public/images/all-img/bb.png"
+  },
+  "public/images/all-img/bg-ins-1.png": {
+    "file": "assets/bg-ins-1-f3e9c928.png",
+    "src": "public/images/all-img/bg-ins-1.png"
+  },
+  "public/images/all-img/bg-ins-2.png": {
+    "file": "assets/bg-ins-2-1301ad6e.png",
+    "src": "public/images/all-img/bg-ins-2.png"
+  },
+  "public/images/all-img/bred.png": {
+    "file": "assets/bred-4cee3f9c.png",
+    "src": "public/images/all-img/bred.png"
+  },
+  "public/images/all-img/footer-bg-1.png": {
+    "file": "assets/footer-bg-1-cc35fec8.png",
+    "src": "public/images/all-img/footer-bg-1.png"
+  },
+  "public/images/all-img/insbg.png": {
+    "file": "assets/insbg-2cd36e32.png",
+    "src": "public/images/all-img/insbg.png"
+  },
+  "public/images/all-img/section-bg-1.png": {
+    "file": "assets/section-bg-1-63592902.png",
+    "src": "public/images/all-img/section-bg-1.png"
+  },
+  "public/images/all-img/section-bg-10.png": {
+    "file": "assets/section-bg-10-720b0196.png",
+    "src": "public/images/all-img/section-bg-10.png"
+  },
+  "public/images/all-img/section-bg-11.png": {
+    "file": "assets/section-bg-11-7f1a75ba.png",
+    "src": "public/images/all-img/section-bg-11.png"
+  },
+  "public/images/all-img/section-bg-12.png": {
+    "file": "assets/section-bg-12-39657a33.png",
+    "src": "public/images/all-img/section-bg-12.png"
+  },
+  "public/images/all-img/section-bg-13.png": {
+    "file": "assets/section-bg-13-a75e6df1.png",
+    "src": "public/images/all-img/section-bg-13.png"
+  },
+  "public/images/all-img/section-bg-14.png": {
+    "file": "assets/section-bg-14-6be989ae.png",
+    "src": "public/images/all-img/section-bg-14.png"
+  },
+  "public/images/all-img/section-bg-15.png": {
+    "file": "assets/section-bg-15-eaa4b7a4.png",
+    "src": "public/images/all-img/section-bg-15.png"
+  },
+  "public/images/all-img/section-bg-16.png": {
+    "file": "assets/section-bg-16-ebdae8e0.png",
+    "src": "public/images/all-img/section-bg-16.png"
+  },
+  "public/images/all-img/section-bg-2.png": {
+    "file": "assets/section-bg-2-465f691d.png",
+    "src": "public/images/all-img/section-bg-2.png"
+  },
+  "public/images/all-img/section-bg-3.png": {
+    "file": "assets/section-bg-3-b0244088.png",
+    "src": "public/images/all-img/section-bg-3.png"
+  },
+  "public/images/all-img/section-bg-5.png": {
+    "file": "assets/section-bg-5-0657145e.png",
+    "src": "public/images/all-img/section-bg-5.png"
+  },
+  "public/images/all-img/section-bg-6.png": {
+    "file": "assets/section-bg-6-d8a78acc.png",
+    "src": "public/images/all-img/section-bg-6.png"
+  },
+  "public/images/all-img/section-bg-7.png": {
+    "file": "assets/section-bg-7-5a7a3f46.png",
+    "src": "public/images/all-img/section-bg-7.png"
+  },
+  "public/images/all-img/section-bg-8.png": {
+    "file": "assets/section-bg-8-a46ba032.png",
+    "src": "public/images/all-img/section-bg-8.png"
+  },
+  "public/images/all-img/section-bg-9.png": {
+    "file": "assets/section-bg-9-6f84f229.png",
+    "src": "public/images/all-img/section-bg-9.png"
+  },
+  "public/images/banner/1.png": {
+    "file": "assets/1-1c088740.png",
+    "src": "public/images/banner/1.png"
+  },
+  "public/images/banner/2.png": {
+    "file": "assets/2-222b3250.png",
+    "src": "public/images/banner/2.png"
+  },
+  "public/images/banner/3.png": {
+    "file": "assets/3-955480f5.png",
+    "src": "public/images/banner/3.png"
+  },
+  "public/images/banner/shape.svg": {
+    "file": "assets/shape-5a037c62.svg",
+    "src": "public/images/banner/shape.svg"
+  },
+  "public/images/svg/line-shape.svg": {
+    "file": "assets/line-shape-3257cbf9.svg",
+    "src": "public/images/svg/line-shape.svg"
+  },
+  "public/images/svg/mini-shape.svg": {
+    "file": "assets/mini-shape-48e36f80.svg",
+    "src": "public/images/svg/mini-shape.svg"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-b6df39c9.css",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-19637a4b.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  }
+}
