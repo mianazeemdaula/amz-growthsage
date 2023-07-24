@@ -14,7 +14,7 @@
                 </div>
                 <div class="course-content">
                     <h4 class=" lg:text-2xl text-1xl mb-1 font-bold">Zahid Saleem</h4>
-                    <div>Expert Trainer</div>
+                    <div>Founder</div>
                     <ul class="space-x-4 flex justify-center pt-6">
                         <li>
                             <a href="#" class=" h-10 w-10 rounded bg-red-paste text-primary flex flex-col justify-center items-center text-2xl transition
@@ -40,11 +40,11 @@
 
             <div class=" bg-white shadow-box3 rounded-[8px] transition-all duration-100 pt-10 pb-[28px] px-6 text-center hover:shadow-box4
               border-t-4 border-transparent hover:border-secondary ">
-                <div class="w-[170px] h-[170px] rounded-full  relative mx-auto mb-8">
-                    <img src="{{ asset('images/all-img/team2.png') }}" alt="" class=" w-full h-full object-cover rounded-full">
+                <div class="w-[170px] h-[170px] rounded-full border-[1px] relative mx-auto mb-8">
+                    <img src="{{ asset('images/all-img/team/team-2.png') }}" alt="" class=" w-full h-full object-cover rounded-full">
                 </div>
                 <div class="course-content">
-                    <h4 class=" lg:text-2xl text-1xl mb-1 font-bold">Mr. ABC</h4>
+                    <h4 class=" lg:text-2xl text-1xl mb-1 font-bold">Muhammad Raza</h4>
                     <div>Student Support</div>
                     <ul class="space-x-4 flex justify-center pt-6">
                         <li>

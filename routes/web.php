@@ -12,6 +12,7 @@ Route::view('courses', 'web.courses');
 Route::view('blogs', 'web.blogs');
 Route::view('about', 'web.about');
 Route::view('contact', 'web.contact');
+Route::view('register', 'web.register');
 
 Route::get('blogs/{id}', [BlogController::class, 'show'])->name('blogs.show');
 
