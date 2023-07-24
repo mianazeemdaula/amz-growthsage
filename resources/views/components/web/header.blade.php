@@ -11,7 +11,7 @@
                     <div class="flex-1 main-menu relative mr-[74px]">
                         <ul class="menu-active-classes">
                             <li>
-                                <a href="#">Home</a>
+                                <a href="{{url('/')}}">Home</a>
                             </li>
                             <li>
                                 <a href="#">Services</a>
@@ -20,7 +20,7 @@
                                 <a href="#">Blog</a>
                             </li>
                             <li>
-                                <a href="#">About</a>
+                                <a href="{{url('about')}}">About</a>
                             </li>
                             <li>
                                 <a href="contact.html">Contact</a>
