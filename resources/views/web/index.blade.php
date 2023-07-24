@@ -32,9 +32,10 @@
     <x-web.features></x-web.features>
     <x-web.joinus></x-web.joinus>
     <x-web.platform></x-web.platform>
-    <x-web.subscription></x-web.subscription>
     <x-web.testimonial></x-web.testimonial>
+    <x-web.subscription></x-web.subscription>
     <x-web.team></x-web.team>
+    <x-web.faq></x-web.faq>
 
 </div>
 

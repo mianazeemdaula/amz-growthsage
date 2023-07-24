@@ -10,12 +10,12 @@
     <section>
         <div class="breadcrumbs section-padding bg-[url('../images/all-img/bred.png')] bg-cover bg-center bg-no-repeat">
             <div class="container text-center">
-                <h2>About Us</h2>
+                <h2>Courses</h2>
                 <nav>
                     <ol class="flex items-center justify-center space-x-3">
                         <li class="breadcrumb-item"><a href="{{url('/')}}">Home </a></li>
                         <li class="breadcrumb-item">-</li>
-                        <li class="text-primary">About Us</li>
+                        <li class="text-primary">Courses</li>
                     </ol>
                 </nav>
             </div>
@@ -24,20 +24,29 @@
 
     <div class="container">
         <div class="flex flex-col text-xl items-center md:px-24 pt-24 leading-relaxed">
-            <p>Our team is our asset. We're a group of experienced professionals with a common goal: to help people learn the useful skill of Amazon product hunting. Using our deep understanding of online sales, we've created an easy-to-follow online training program. This isn't just about teaching, it's about giving our students real-world knowledge and hands-on practice.</p>
+            <h4 class="column-title ">
+                Amazon Product
+                <span class="shape-bg">
+                    Hunting</span>
+            </h4>
+            <p>
+                Welcome to our Amazon Product Hunting Training Program, a thoughtfully designed curriculum that combines industry insights, practical skills, and a supportive learning environment to help you thrive in the dynamic world of online selling.
+                This is not just a course; it's your first step towards becoming a proficient Amazon product hunter. Come, join us and unlock a world of opportunities.
+            </p>
             <div class="w-48 border-b-2 mt-16">
 
             </div>
         </div>
 
     </div>
-    <x-web.about></x-web.about>
+
     <x-web.features></x-web.features>
-    <x-web.subscription></x-web.subscription>
+    <x-web.joinus></x-web.joinus>
     <x-web.cta></x-web.cta>
-    <x-web.team></x-web.team>
-    <!-- <x-web.faq></x-web.faq>
-    <x-web.video></x-web.video> -->
+    <x-web.subscription></x-web.subscription>
+    <!-- <x-web.team></x-web.team> -->
+
+
 </div>
 
 @endsection

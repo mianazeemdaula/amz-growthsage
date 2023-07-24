@@ -14,10 +14,10 @@
                                 <a href="{{url('/')}}">Home</a>
                             </li>
                             <li>
-                                <a href="#">Services</a>
+                                <a href="{{url('courses')}}">Courses</a>
                             </li>
                             <li>
-                                <a href="#">Blog</a>
+                                <a href="{{url('blogs')}}">Blogs</a>
                             </li>
                             <li>
                                 <a href="{{url('about')}}">About</a>

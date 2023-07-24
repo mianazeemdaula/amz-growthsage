@@ -86,6 +86,6 @@
         </div>
     </div>
     <div class="container border-t border-white border-opacity-[0.1] py-8 text-center text-base text-white">
-        &copy; Copyright 2023 | All Rights Reserved
+        &copy; Copyright 2023 | Growth-Sage | All Rights Reserved
     </div>
 </footer>
