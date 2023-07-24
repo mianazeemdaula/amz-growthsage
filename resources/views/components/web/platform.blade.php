@@ -10,7 +10,7 @@
                     For You
                 </h4>
                 <div>
-                    We are fully passionate to use our 30+ years experience for transforming practical skills to our students.
+                    We have 30+ years experience of transforming practical skills to beginners & professionals.
                 </div>
                 <ul class=" space-y-2 pt-8">
                     <li class="flex flex-wrap">

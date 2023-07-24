@@ -13,7 +13,7 @@
                 <h2>About Us</h2>
                 <nav>
                     <ol class="flex items-center justify-center space-x-3">
-                        <li class="breadcrumb-item"><a href="index.html">Home </a></li>
+                        <li class="breadcrumb-item"><a href="{{url('/')}}">Home </a></li>
                         <li class="breadcrumb-item">-</li>
                         <li class="text-primary">About Us</li>
                     </ol>

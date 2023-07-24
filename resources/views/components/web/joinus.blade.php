@@ -15,20 +15,20 @@
                 </div>
             </a>
 
-            <div class="course-content p-8">
+            <div class="course-content px-8 py-4">
                 <h4 class=" text-2xl mb-3 font-bold">Amazon Product Hunting </h4>
                 <div class="leading-relaxed">
-                    Upon completion of the program, you will be well-versed with the tools, techniques, and strategies of successful product hunting on Amazon. You will be able to identify profitable products, understand market trends, and make informed decisions to maximize your earnings.
+                    Upon completion of this program, you will be well-versed with the tools, techniques, and strategies to identify profitable products, understand market trends, and make informed decisions to maximize your earnings.
                 </div>
-                <div class="text-secondary font-bold text-2xl my-3">$29.28</div>
-                <div class="flex space-x-8">
+                <div class="text-secondary font-bold text-2xl my-3">Rs.10,000</div>
+                <div class="flex flex-col space-y-4">
                     <span class=" flex items-center space-x-2">
                         <img src="{{ asset('images/svg/file.svg') }}" alt="">
-                        <span>40 Lessons</span>
+                        <span>3 Lectures / Week</span>
                     </span>
                     <span class=" flex items-center space-x-2">
                         <img src="{{ asset('images/svg/clock.svg') }}" alt="">
-                        <span>2 Months</span>
+                        <span>3 Months</span>
                     </span>
                     <span class=" flex items-center space-x-2">
                         <img src="{{ asset('images/svg/star.svg') }}" alt="">
