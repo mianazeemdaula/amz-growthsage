@@ -8,7 +8,8 @@
 
     <script src="https://unpkg.com/phosphor-icons"></script>
     <script src="https://code.iconify.design/iconify-icon/1.0.0/iconify-icon.min.js"></script>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
+    <!-- @vite(['resources/css/app.css', 'resources/js/app.js']) -->
+    <link rel="stylesheet" href="{{asset('/build/assets/app.css')}}">
     <title>Growth Sage</title>
 </head>
 
