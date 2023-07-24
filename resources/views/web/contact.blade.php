@@ -59,7 +59,7 @@
                                     </div>
                                     <div class="flex-1">
                                         <h4 class=" lg:text-xl text-lg mb-1">Call Us:</h4>
-                                        <div>+92 321 5555434</div>
+                                        <div>+92 305 77000</div>
                                     </div>
                                 </li>
                                 <!-- <li class="flex">
