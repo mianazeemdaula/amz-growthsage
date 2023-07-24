@@ -59,19 +59,19 @@
         <div class="mobile-menu mt-6 flex-1 ">
             <ul class="menu-active-classes">
                 <li>
-                    <a href="#">Home</a>
+                    <a href="{{url('/')}}">Home</a>
                 </li>
                 <li>
-                    <a href="#">Services</a>
+                    <a href="{{url('courses')}}">Courses</a>
                 </li>
                 <li>
-                    <a href="#">Blogs</a>
+                    <a href="{{url('blogs')}}">Blogs</a>
                 </li>
                 <li>
-                    <a href="#">About</a>
+                    <a href="{{url('about')}}">About</a>
                 </li>
                 <li>
-                    <a href="contact.html">Contacts</a>
+                    <a href="{{url('contact')}}">Contact</a>
                 </li>
             </ul>
         </div>

@@ -44,19 +44,19 @@
                         <h4 class="mb-8 text-2xl font-bold text-white">Links</h4>
                         <ul class="list-item space-y-5">
                             <li>
-                                <a href="#">Home</a>
+                                <a href="{{url('/')}}">Home</a>
                             </li>
                             <li>
-                                <a href="#">Services</a>
+                                <a href="{{url('courses')}}">Courses</a>
                             </li>
                             <li>
-                                <a href="#">Blogs</a>
+                                <a href="{{url('blogs')}}">Blogs</a>
                             </li>
                             <li>
-                                <a href="#">About Us</a>
+                                <a href="{{url('about')}}">About</a>
                             </li>
                             <li>
-                                <a href="#">Contact Us</a>
+                                <a href="{{url('contact')}}">Contact</a>
                             </li>
                         </ul>
                     </div>

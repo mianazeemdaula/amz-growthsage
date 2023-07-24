@@ -35,32 +35,34 @@
                                     Today</span>
                             </h4>
                             <div>
-                                Our staff provide a wide range of insights and viewpoints, making the learning experience rich, varied, and really useful.
+                                We understand that learning a new skill, especially one as dynamic as Amazon product hunting, comes with its unique set of challenges. That's why we have a dedicated support team in place to guide our students at every step of their learning journey.
+                                Our support team is quick to respond to queries, ensuring that no question goes unanswered.
                             </div>
+
                             <ul class=" list-item space-y-6 pt-8">
                                 <li class="flex">
                                     <div class="flex-none mr-6">
                                         <div class="">
-                                            <img src="assets/images/svg/mail.svg" alt="" class="">
+                                            <img src="{{asset('images/svg/mail.svg')}}" alt="" class="">
                                         </div>
                                     </div>
                                     <div class="flex-1">
                                         <h4 class=" lg:text-xl text-lg mb-1">Email-Us :</h4>
-                                        <div>Contactyourmail@gmail.com</div>
+                                        <div>info@growth-sage.com</div>
                                     </div>
                                 </li>
                                 <li class="flex">
                                     <div class="flex-none mr-6">
                                         <div class="">
-                                            <img src="assets/images/svg/call.svg" alt="" class="">
+                                            <img src="{{asset('images/svg/call.svg')}}" alt="" class="">
                                         </div>
                                     </div>
                                     <div class="flex-1">
                                         <h4 class=" lg:text-xl text-lg mb-1">Call Us:</h4>
-                                        <div>+88012 2910 1781, +88019 6128 1689</div>
+                                        <div>+92 321 5555434</div>
                                     </div>
                                 </li>
-                                <li class="flex">
+                                <!-- <li class="flex">
                                     <div class="flex-none mr-6">
                                         <div class="">
                                             <img src="assets/images/svg/map.svg" alt="" class="">
@@ -70,7 +72,7 @@
                                         <h4 class="lg:text-xl text-lg mb-1">Office :</h4>
                                         <div>Mountain Green Road 2389, NY, USA</div>
                                     </div>
-                                </li>
+                                </li> -->
                             </ul>
                         </div>
                         <div class="xl:col-span-7 lg:col-span-6 col-span-12">
