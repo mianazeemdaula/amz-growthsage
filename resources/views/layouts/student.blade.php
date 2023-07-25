@@ -16,9 +16,7 @@
 
     @yield('header')
     @yield('body')
-    @yield('footer')
     <script src="{{asset('js/sweetalert2@10.js')}}"></script>
-    <script src="{{asset('js/subscription.js')}}"></script>
     @yield('script')
 
 </body>

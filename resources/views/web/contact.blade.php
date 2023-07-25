@@ -20,9 +20,28 @@
                 </nav>
             </div>
         </div>
+        <!-- if query submission error -->
+        @if ($errors->any())
+        <div class="container">
+            <div class="bg-red-100 rounded-md text-xl w-full mt-16 p-16">
+                <h4 class="text-primary">Error!</h4>
+                <ul class="space-y-4">
+                    @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        </div>
+        @endif
 
-        <!-- contact us -->
-
+        @if(session('success'))
+        <div class="container">
+            <div class="flex flex-col justify-center items-center bg-green-100 rounded-lg text-xl p-8 my-16">
+                <h4 class="text-secondary">Success!</h4>
+                <p class="text-slate-800 mt-6">We have recieved your query successfully. Soon our representative will respond to your query</p>
+            </div>
+        </div>
+        @else
         <div class="container">
             <div class="nav-tab-wrapper tabs  section-padding">
                 <div class="container">
@@ -35,8 +54,7 @@
                                     Today</span>
                             </h4>
                             <div>
-                                We understand that learning a new skill, especially one as dynamic as Amazon product hunting, comes with its unique set of challenges. That's why we have a dedicated support team in place to guide our students at every step of their learning journey.
-                                Our support team is quick to respond to queries, ensuring that no question goes unanswered.
+                                Feel free to place your Amazon related query. Our support team is quick to respond, ensuring that no question goes unanswered.
                             </div>
 
                             <ul class=" list-item space-y-6 pt-8">
@@ -62,37 +80,21 @@
                                         <div>+92 305 77000</div>
                                     </div>
                                 </li>
-                                <!-- <li class="flex">
-                                    <div class="flex-none mr-6">
-                                        <div class="">
-                                            <img src="assets/images/svg/map.svg" alt="" class="">
-                                        </div>
-                                    </div>
-                                    <div class="flex-1">
-                                        <h4 class="lg:text-xl text-lg mb-1">Office :</h4>
-                                        <div>Mountain Green Road 2389, NY, USA</div>
-                                    </div>
-                                </li> -->
                             </ul>
                         </div>
                         <div class="xl:col-span-7 lg:col-span-6 col-span-12">
                             <div class="bg-white shadow-box7 p-8 rounded-md">
-                                <form class="form" name="enq" method="post" action="contact.php" onsubmit="return validation();">
+                                <form class="form" name="enq" method="post" action="{{route('queries.store')}}">
+                                    @csrf
                                     <div class=" md:grid-cols-2 grid grid-cols-1 gap-[30px] mt-6 ">
-                                        <div>
-                                            <input type="text" name="name" class=" from-control" placeholder="Name*">
-                                        </div>
                                         <div>
                                             <input type="email" name="email" class=" from-control" placeholder="Email*">
                                         </div>
                                         <div>
-                                            <input type="text" name="subject" class=" from-control" placeholder="Subject *">
-                                        </div>
-                                        <div>
-                                            <input type="website" name="website" class=" from-control" placeholder="Website Address">
+                                            <input type="text" name="mobile" class=" from-control" placeholder="Mobile*">
                                         </div>
                                         <div class="md:col-span-2 col-span-1">
-                                            <textarea class=" from-control" name="message" placeholder="Your Message*" rows="5"></textarea>
+                                            <textarea class=" from-control" name="question" placeholder="Your question*" rows="5"></textarea>
                                         </div>
                                     </div>
                                     <button class="btn btn-primary mt-[30px]" type="submit" name="submit">
@@ -105,6 +107,7 @@
                 </div>
             </div>
         </div>
+        @endif
 
     </section>
 

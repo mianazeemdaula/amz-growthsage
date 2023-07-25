@@ -42,10 +42,7 @@
 
     <x-web.features></x-web.features>
     <x-web.joinus></x-web.joinus>
-    <x-web.cta></x-web.cta>
-    <x-web.subscription></x-web.subscription>
-    <!-- <x-web.team></x-web.team> -->
-
+    <!-- <x-web.cta></x-web.cta> -->
 
 </div>
 

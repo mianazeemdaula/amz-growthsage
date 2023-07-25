@@ -17,11 +17,11 @@
                         <span class=" absolute left-0 top-1/2 -translate-y-1/2 ">
                             <img src="{{ asset('images/icon/mail-white.svg') }}" alt="">
                         </span>
-                        <input type="text" placeholder="Enter your mail address" class=" border-b border-t-0 border-l-0 border-r-0 border-[#B2E2DF] ring-0 focus:ring-0 bg-transparent text-white
+                        <input type="text" id="email_body" placeholder="Enter your mail address" class=" border-b border-t-0 border-l-0 border-r-0 border-[#B2E2DF] ring-0 focus:ring-0 bg-transparent text-white
                                   placeholder:text-[#B2E2DF] focus:outline-0 focus:border-[#B2E2DF] transition pl-8 text-lg">
                     </div>
                     <div class="flex-none">
-                        <button class="btn bg-white  text-secondary md:w-auto w-full">Subscribe Now</button>
+                        <button class="btn bg-white  text-secondary md:w-auto w-full" onclick="subscribe('body')">Subscribe Now</button>
                     </div>
                 </div>
             </div>

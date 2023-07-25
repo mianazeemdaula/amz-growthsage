@@ -33,11 +33,9 @@
     </div>
     <x-web.about></x-web.about>
     <x-web.features></x-web.features>
-    <x-web.subscription></x-web.subscription>
-    <x-web.cta></x-web.cta>
     <x-web.team></x-web.team>
-    <!-- <x-web.faq></x-web.faq>
-    <x-web.video></x-web.video> -->
+    <x-web.cta></x-web.cta>
+
 </div>
 
 @endsection

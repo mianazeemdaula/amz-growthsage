@@ -76,10 +76,10 @@
                         </span>
                     </div>
                     <div class="flex-1">
-                        <input type="text" placeholder="Enter your mail" class="border-none focus:ring-0">
+                        <input type="text" id='email_footer' placeholder="Enter your mail" class="border-none focus:ring-0 text-slate-600">
                     </div>
                 </div>
-                <button class="btn btn-primary block w-full text-center">
+                <button class="btn btn-primary block w-full text-center" onclick="subscribe('footer')">
                     Subscribe Now
                 </button>
             </div>
