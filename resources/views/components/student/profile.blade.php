@@ -23,11 +23,19 @@
             <div>Phone</div>
         </div>
         <div class="flex text-sm mt-4">
+            <div class="w-8"><i class="bi-translate"></i></div>
+            <div>Language</div>
+        </div>
+        <div class="flex text-sm mt-4">
             <div class="w-8"><i class="bi-globe"></i></div>
             <div>Country</div>
         </div>
         <div class="flex text-sm mt-4">
             <div class="w-8"><i class="bi-pin-map"></i></div>
+            <div>Province</div>
+        </div>
+        <div class="flex text-sm mt-4">
+            <div class="w-8"><i class="bi-geo-alt"></i></div>
             <div>City</div>
         </div>
         <div class="flex text-sm mt-4">
@@ -39,6 +47,5 @@
             <div class="w-8"><i class="bi-key"></i></div>
             <a href="" class="link">Change Password</a>
         </div>
-
     </div>
 </div>
