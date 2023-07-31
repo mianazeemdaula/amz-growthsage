@@ -7,24 +7,41 @@
         <ul class="flex flex-col items-start space-y-4">
             <li>
                 <i class="bi-grid"></i>
-                <a href="{{url('/')}}">Home</a>
+                <a href="{{url('students')}}">Home</a>
             </li>
             <li>
                 <i class="bi-book"></i>
-                <a href="#">Courses</a>
+                <a href="{{url('courses.view')}}">Courses</a>
             </li>
 
             <li>
                 <i class="bi-award"></i>
-                <a href="#">Registration</a>
+                <a href="{{route('registration.create')}}">Registration</a>
+            </li>
+            <li>
+                <i class="bi-receipt"></i>
+                <a href="#">Invoices</a>
             </li>
             <li>
                 <i class="bi-currency-dollar"></i>
-                <a href="#">Fee Payment</a>
+                <a href="#">Accounts</a>
             </li>
             <li>
                 <i class="bi-calendar2"></i>
                 <a href="#">Schedule</a>
+            </li>
+
+            <li>
+                <i class="bi-card-checklist"></i>
+                <a href="#">Tasks</a>
+            </li>
+            <li>
+                <i class="bi-graph-up"></i>
+                <a href="#">Scorage</a>
+            </li>
+            <li>
+                <i class="bi-diagram-2"></i>
+                <a href="#">Team</a>
             </li>
 
         </ul>

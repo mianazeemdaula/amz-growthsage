@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\QueryController;
-use App\Http\Controllers\RegistrationController;
+use App\Http\Controllers\student\RegistrationController;
 use App\Http\Controllers\StudentController;
 use App\Http\Controllers\SubscriberController;
 use App\Http\Controllers\UserController;
@@ -21,6 +21,8 @@ Route::get('/', function () {
 });
 
 Route::view('courses', 'web.courses');
+Route::view('courses.view', 'student.courses');
+
 Route::view('blogs', 'web.blogs');
 Route::view('about', 'web.about');
 Route::view('contact', 'web.contact');
@@ -39,3 +41,5 @@ Route::get('blogs/{id}', [BlogController::class, 'show'])->name('blogs.show');
 
 Route::get('home', function ($id) {
 });
+
+Route::resource('registration', RegistrationController::class);

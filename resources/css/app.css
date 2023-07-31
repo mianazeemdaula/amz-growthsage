@@ -1,6 +1,16 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+! tailwindcss v3.0.17 | MIT License | https://tailwindcss.com
+*/
+
+@layer base {
+}
 @layer components {
     .responsive-body {
-        @apply md:pl-60 mt-16 bg-slate-50;
+        @apply md:pl-60 mt-16 bg-slate-100 min-h-screen;
     }
     .header {
         @apply fixed top-0 left-0 w-full h-16 z-40 bg-transparent border-b-[1px] border-sky-100 transition-[bg] duration-500 ease-in-out;
@@ -9,7 +19,7 @@
         @apply bg-white;
     }
     .sidebar {
-        @apply fixed top-0 md:top-16 -left-80 md:left-0 w-80 md:w-60 z-50 md:inline-block  h-full bg-sky-800 text-white shadow-xl transition-all duration-1000 ease-in-out;
+        @apply fixed top-0 md:top-16 -left-80 md:left-0 w-80 md:w-60 z-50 md:inline-block  h-full bg-sky-800 text-slate-300 shadow-xl transition-all duration-1000 ease-in-out;
     }
 
     .sidebar.mobile {
@@ -23,18 +33,69 @@
     .sidebar ul li {
         @apply flex items-center space-x-4;
     }
-    /* .container {
-        @apply px-4 md:px-24 min-w-full;
-    } */
+    .h2 {
+        @apply font-bold text-lg;
+    }
+    .h3 {
+        @apply font-bold text-base;
+    }
+    .h4 {
+        @apply font-semibold text-base;
+    }
+    .link {
+        @apply text-blue-600 hover:text-blue-800 hover:underline hover:underline-offset-2;
+    }
+    .bread-crumb {
+        @apply flex items-center space-x-1 text-sm;
+    }
+    .pallet-box {
+        @apply flex w-full rounded-lg bg-white drop-shadow-sm p-4;
+    }
+    .pallet-box .title {
+        @apply text-sm text-slate-500 font-thin;
+    }
+    .pallet-box .ico {
+        @apply flex justify-center items-center w-12 h-12 rounded-full;
+    }
+    .pallet-box .bi {
+        @apply text-[24px];
+    }
+
+    .btn-indigo-rounded {
+        @apply bg-indigo-600 hover:bg-indigo-500 text-white border-0 py-1 px-4 focus:outline-none rounded text-base;
+    }
+
+    .btn-gray {
+        @apply bg-gray-500 hover:bg-gray-600 duration-200 px-4 py-1 rounded-sm text-slate-200;
+    }
+    .btn-indigo {
+        @apply bg-indigo-600 hover:bg-indigo-500 duration-200 px-4 py-1 rounded-sm text-slate-200 font-thin;
+    }
+    .btn-red {
+        @apply bg-red-500 hover:bg-red-800 duration-200 px-3 py-1 rounded text-slate-50;
+    }
+    .btn-orange {
+        @apply bg-orange-200 hover:bg-orange-300 duration-200 px-3 py-1 rounded text-slate-800;
+    }
+    .btn-blue {
+        @apply bg-blue-500 hover:bg-blue-800 duration-200 px-3 py-2 rounded text-slate-50;
+    }
+    .btn-green {
+        @apply bg-green-800 hover:bg-green-700 duration-200 px-3 py-2 rounded text-slate-50 text-sm;
+    }
+    .btn-sky {
+        @apply bg-sky-500 hover:bg-sky-800 duration-200 px-3 py-1 rounded text-slate-50;
+    }
+    .btn-teal {
+        @apply bg-teal-600 hover:bg-teal-800 duration-200 px-3 py-1 rounded text-slate-50;
+    }
+    .btn-violet {
+        @apply bg-violet-500 hover:bg-violet-800 duration-200 px-3 py-1 rounded text-slate-50;
+    }
+    .divider {
+        @apply border-t border-slate-200 border-dashed;
+    }
 }
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/*
-! tailwindcss v3.0.17 | MIT License | https://tailwindcss.com
-*/
 
 /*
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
