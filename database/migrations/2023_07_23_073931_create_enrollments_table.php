@@ -18,6 +18,8 @@ return new class extends Migration
             $table->unsignedBigInteger('cashier_id');
             $table->unsignedBigInteger('feemode_id');
             $table->boolean('fee_paid')->default(false);
+            $table->boolean('notified')->default(false);
+
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');

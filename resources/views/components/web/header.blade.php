@@ -14,16 +14,16 @@
                                 <a href="{{url('/')}}">Home</a>
                             </li>
                             <li>
-                                <a href="{{url('courses')}}">Courses</a>
+                                <a href="{{url('web/courses')}}">Courses</a>
                             </li>
                             <li>
-                                <a href="{{url('blogs')}}">Blogs</a>
+                                <a href="{{url('web/blogs')}}">Blogs</a>
                             </li>
                             <li>
-                                <a href="{{url('about')}}">About</a>
+                                <a href="{{url('web/about')}}">About</a>
                             </li>
                             <li>
-                                <a href="{{url('contact')}}">Contact</a>
+                                <a href="{{url('web/contact')}}">Contact</a>
                             </li>
                         </ul>
                     </div>

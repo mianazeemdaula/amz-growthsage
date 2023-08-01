@@ -16,6 +16,7 @@ class Enrollment extends Model
         'cashier_id',
         'feemode_id',
         'fee_paid',
+        'notified',
     ];
 
     public function user(): BelongsTo
@@ -34,5 +35,9 @@ class Enrollment extends Model
     public function feemode(): BelongsTo
     {
         return $this->belongsTo(FeeMode::class, 'feemode_id');
+    }
+    public function scopeIn($query, $course_id)
+    {
+        return $query->where('course_id', $course_id);
     }
 }

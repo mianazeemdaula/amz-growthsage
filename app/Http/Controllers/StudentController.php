@@ -7,6 +7,7 @@ use App\Models\Country;
 use App\Models\Enrollment;
 use App\Models\Language;
 use App\Models\Student;
+use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -23,7 +24,7 @@ class StudentController extends Controller
         $user = Auth::user();
         $languages = Language::all();
         $countries = Country::all();
-        return view('students.index', compact('user', 'languages', 'countries'));
+        return view('student.index', compact('user', 'languages', 'countries'));
     }
 
     /**
@@ -32,10 +33,6 @@ class StudentController extends Controller
     public function create()
     {
         //
-        $user = Auth::user();
-        $languages = Language::all();
-        $countries = Country::all();
-        return view('students.create', compact('user', 'languages', 'countries'));
     }
 
     /**
@@ -51,6 +48,16 @@ class StudentController extends Controller
             'phone' => 'required',
             'code' => 'string|size:6'
         ]);
+
+        if ($request->code != '') {
+            $user = User::where('code', $request->code)->first();
+            if ($user)
+                $request->merge(['referral_id' => $user->id]);
+            else
+                return redirect()->back()->with(['success' => 'Referral code invalid!']);
+        }
+
+        // in case, referral code missed, by default referal_id will be null
 
         try {
 

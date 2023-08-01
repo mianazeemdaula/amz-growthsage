@@ -63,7 +63,7 @@
         </a>
     </div>
 
-    <!-- activity section -->
+    <!-- middle content panel starts-->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-y-8 md:gap-x-8 mt-8">
         <div class="relative col-span-2">
             <!-- user has already taken some course -->
@@ -97,26 +97,21 @@
             @elseif($user->profile)
             <!-- user has not taken any course, profile complete -->
             <!-- offer courses for registration  -->
-            <div class="p-6 rounded-lg  bg-white">
-                <div class="flex flex-col justify-center">
-                    <div class="h2">Dear student!</div>
-                    <div class="h3">Currently, you haven't taken any course.</div>
-                    <p class="text-slate-600">Do you know we have amazing course(s) for you. Please see details of the course and follow the registration process so that you could have an access to the content of course </p>
-                </div>
+            <div class="p-6 rounded-lg  bg-blue-100">
+                <x-student.nocourse_msg></x-student.nocourse_msg>
             </div>
             <div class="p-6 rounded-lg  bg-white mt-6">
                 <x-student.course></x-student.course>
             </div>
             @else
             <!-- profile incomplete -->
-            <div class="p-6 rounded-lg  bg-white">
-                <div class="flex flex-col justify-center">
-                    <div class="h2">Dear student!</div>
-                    <div class="h3">Your profile has been found incomplete.</div>
-                    <p class="text-slate-600">It is one time process. Please take a while to complete your profile to proceed next for course registration process. Once you comlete your profile, courses list will be available to you for registration. </p>
-                </div>
+            <div class="p-6 rounded-lg  bg-blue-100">
+                <x-student.noprofile_msg></x-student.noprofile_msg>
             </div>
             <div class="p-6 rounded-lg  bg-white mt-6">
+
+                <div class="h2">Complete Your Profile</div>
+                <div class="text-slate-500 mt-1">Please provide following information</div>
 
                 @if ($errors->any())
                 <div class="alert-danger mt-8">
@@ -135,9 +130,6 @@
                 </div>
                 @endif
 
-
-                <div class="h2">Complete Your Profile</div>
-                <div class="text-slate-500 mt-1">Please provide following information</div>
                 <form action="{{route('students.store')}}" method='post' class="flex flex-col w-full mt-4" enctype="multipart/form-data" onsubmit="return validate(event)">
                     @csrf
                     <input type="hidden" name='user_id' value="{{$user->id}}">
@@ -161,7 +153,7 @@
                         </div>
                         <div>
                             <label for="">Province</label>
-                            <input type="text" name='province' class='custom-input'>
+                            <input type="text" name='province' class='custom-input' value="Punjab">
                         </div>
                         <div>
                             <label for="">City*</label>
@@ -182,7 +174,7 @@
                         </div>
                         <div>
                             <label for="">Referral Code</label>
-                            <input type="text" name="referral_code" class="custom-input" placeholder="Referral Code if any">
+                            <input type="text" name="code" class="custom-input" placeholder="Referral Code if any">
                         </div>
                         <div></div>
                         <div class="mt-4">
@@ -195,10 +187,16 @@
             @endif
 
         </div>
-        <div class="p-6 bg-white">
-            <x-student.profile :user="$user"></x-student.profile>
-            <!-- <x-student.upcoming></x-student.upcoming> -->
+        <!-- middle content panel ended -->
+        <!-- right sidebar starts -->
+        <div>
+            <div class="p-6 bg-white">
+                <x-student.profile :user="$user"></x-student.profile>
+                <!-- <x-student.upcoming></x-student.upcoming> -->
+            </div>
         </div>
+        <!-- right sidebar ended -->
+
     </div>
 </div>
 @endsection

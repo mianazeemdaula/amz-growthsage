@@ -326,7 +326,7 @@
                 <x-student.profile :user="Auth::user()"></x-student.profile>
             </div>
             <div class="p-6 bg-white mt-6">
-                <x-student.reg_progress :step="Auth::user()->registrationStep()"></x-student.reg_progress>
+                <x-student.reg_progress :step="Auth::user()->enrollmentStatusFor(1)"></x-student.reg_progress>
             </div>
         </div>
     </div>

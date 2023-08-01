@@ -18,10 +18,10 @@ return new class extends Migration
             $table->unsignedBigInteger('language_id');
             $table->unsignedBigInteger('country_id');
             $table->string('phone', 15);
-            $table->string('province', 30);
+            $table->string('province', 30)->nullable();
             $table->string('city', 30);
-            $table->string('address', 100);
-            $table->string('experience');
+            $table->string('address', 100)->nullable();
+            $table->string('experience')->nullable();
             $table->string('image', 20)->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

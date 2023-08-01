@@ -68,8 +68,20 @@ class User extends Authenticatable
         if ($this->profile) return 1;
         if (count($this->enrollments)) return 2;
     }
-    public function scopeIn($query, $course_id)
+    public function enrollmentStatusFor($course_id)
     {
-        return $query->where('course_id', $course_id);
+        $status = 0;
+        if ($this->profile) {
+            $status = 1;
+            if ($this->enrollments()->in($course_id)->first()) {
+                $status = 2;
+            }
+        }
+        // if ($this->enrollments()->in($course_id)->first()->notified) $status = 4;
+        // if ($this->enrollments()->in($course_id)->first()->fee_paid) $status = 3;
+        // else
+        // elseif  $status = 1;
+
+        return $status;
     }
 }
