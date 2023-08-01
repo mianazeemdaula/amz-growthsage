@@ -11,9 +11,11 @@ class reg_progress extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public $step;
+    public function __construct($step)
     {
         //
+        $this->step = $step;
     }
 
     /**

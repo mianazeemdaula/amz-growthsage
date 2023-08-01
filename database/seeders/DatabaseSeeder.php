@@ -23,12 +23,15 @@ class DatabaseSeeder extends Seeder
         app()[\Spatie\Permission\PermissionRegistrar::class]->forgetCachedPermissions();
 
         $this->call([
+            RoleSeeder::class, //spatie
+            UserSeeder::class,
             LanguageSeeder::class,
             CountrySeeder::class,
             FeeModeSeeder::class,
             QuerySeeder::class,
             SubscriberSeeder::class,
             CourseSeeder::class,
+            StudentSeeder::class,
         ]);
     }
 }

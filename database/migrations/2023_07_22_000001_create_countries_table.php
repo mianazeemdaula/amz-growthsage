@@ -13,15 +13,15 @@ return new class extends Migration
     {
         Schema::create('countries', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('lang_id');
+            $table->unsignedBigInteger('language_id');
             $table->string('name', 30)->unique();
             $table->string('flag')->nullable();
-            $table->string('iso_code', 3);
-            $table->string('dial_code', 5);
-            $table->string('currency', 2);
+            $table->string('iso_code', 3)->nullable();
+            $table->string('dial_code', 5)->nullable();
+            $table->string('currency', 5);
             $table->string('timezone', 30)->nullable();
             $table->timestamps();
-            $table->foreign('lang_id')->references('id')->on('languages')->onDelete('cascade');
+            $table->foreign('language_id')->references('id')->on('languages')->onDelete('cascade');
         });
     }
 

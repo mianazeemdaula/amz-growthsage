@@ -13,17 +13,16 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     if (Auth::check()) {
-        //if authenticated, attach semesters
-        return view('student.index');
+        if (Auth::user()->hasRole('student'))
+            return redirect('students');
     } else {
         return view('web.index');
     }
 });
 
 Route::view('courses', 'web.courses');
-Route::view('courses.view', 'student.courses');
-
 Route::view('blogs', 'web.blogs');
+Route::get('blogs/{id}', [BlogController::class, 'show'])->name('blogs.show');
 Route::view('about', 'web.about');
 Route::view('contact', 'web.contact');
 Route::view('register', 'web.register');
@@ -32,14 +31,19 @@ Route::post('login', [AuthController::class, 'login']);
 Route::get('signout', [AuthController::class, 'signout'])->name('signout');
 
 Route::resource('subscribers', SubscriberController::class)->only('store');
+
 Route::resource('registration', RegistrationController::class);
+
 Route::resource('queries', QueryController::class);
 Route::resource('users', UserController::class);
-Route::resource('students', StudentController::class);
 
-Route::get('blogs/{id}', [BlogController::class, 'show'])->name('blogs.show');
 
-Route::get('home', function ($id) {
+
+
+Route::group(['middleware' => ['role:student']], function () {
+    Route::resource('students', StudentController::class);
+    Route::view('courses/view', 'students.courses');
 });
 
-Route::resource('registration', RegistrationController::class);
+// Route::get('home', function ($id) {
+// });

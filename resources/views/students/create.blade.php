@@ -4,7 +4,7 @@
 <x-student.header></x-student.header>
 @endsection
 @section('sidebar')
-<x-student.sidebar></x-student.sidebar>
+<x-student.sidebar page='reg'></x-student.sidebar>
 @endsection
 
 @section('body')
@@ -23,7 +23,27 @@
         <div class="text-slate-500">{{today()->format('d/m/Y')}}</div>
     </div>
 
-    @php $step=3; @endphp
+    @if ($errors->any())
+    <div class="alert-danger mt-8">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+    @endif
+
+    @if(session('success'))
+    <div class="flex alert-success items-center mt-8">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-4">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
+        </svg>
+
+        {{session('success')}}
+    </div>
+    @endif
+
+    @php $step=Auth::user()->registrationStep(); @endphp
     <!-- registratin form -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-y-8 md:gap-x-8">
 
@@ -33,45 +53,53 @@
             <div class="p-6 rounded-lg  bg-white">
                 <div class="h2">Complete Your Profile</div>
                 <div class="text-slate-500 mt-1">Please provide following information</div>
-                <form action="{{route('registration.store')}}" method='post' class="flex flex-col w-full mt-4" enctype="multipart/form-data" onsubmit="return validate(event)">
+                <form action="{{route('students.store')}}" method='post' class="flex flex-col w-full mt-4" enctype="multipart/form-data" onsubmit="return validate(event)">
                     @csrf
+                    <input type="hidden" name='user_id' value="{{$user->id}}">
+                    <input type="hidden" name="course_id" value="1">
                     <div class="grid grid-cols-1 lg:grid-cols-2 mt-3 text-slate-600 gap-4">
                         <div>
                             <label for="">Language*</label>
-                            <select name="" id="" class="w-full custom-input">
-                                <option value="EN">English</option>
-                                <option value="UR">Urdu</option>
-                                <option value="AR">Arabic</option>
-                                <option value="PR">Persian</option>
-                                <option value="CH">Chinese</option>
+                            <select name="language_id" id="" class="w-full custom-input">
+                                @foreach($languages as $language)
+                                <option value="{{$language->id}}">{{$language->name}}</option>
+                                @endforeach
                             </select>
-
-                        </div>
-                        <div>
-                            <label for="">Experience (if any)</label>
-                            <input type="text" class='custom-input'>
-                        </div>
-                        <div>
-                            <label for="">Phone*</label>
-                            <input type="text" class='custom-input'>
                         </div>
                         <div>
                             <label for="">Country*</label>
-                            <input type="text" class='custom-input'>
+                            <select name="country_id" id="" class="w-full custom-input">
+                                @foreach($countries as $country)
+                                <option value="{{$country->id}}">{{$country->name}}</option>
+                                @endforeach
+                            </select>
                         </div>
                         <div>
                             <label for="">Province</label>
-                            <input type="text" class='custom-input'>
+                            <input type="text" name='province' class='custom-input'>
                         </div>
                         <div>
                             <label for="">City*</label>
-                            <input type="text" class='custom-input'>
+                            <input type="text" name='city' class='custom-input'>
                         </div>
 
                         <div class="lg:col-span-2">
                             <label for="">Address</label>
-                            <input type="text" class='custom-input'>
+                            <input type="text" name='address' class='custom-input'>
                         </div>
+                        <div>
+                            <label for="">Phone*</label>
+                            <input type="text" name='phone' class='custom-input'>
+                        </div>
+                        <div>
+                            <label for="">Experience (if any)</label>
+                            <input type="text" name='experience' class='custom-input'>
+                        </div>
+                        <div>
+                            <label for="">Referral Code</label>
+                            <input type="text" name="referral_code" class="custom-input" placeholder="Referral Code if any">
+                        </div>
+                        <div></div>
                         <div class="mt-4">
                             <button type="submit" class="btn-blue">Submit Now</button>
                         </div>
@@ -295,10 +323,10 @@
         <!-- right side panel started-->
         <div class="">
             <div class="p-6 bg-white">
-                <x-student.profile_100></x-student.profile_100>
+                <x-student.profile :user="Auth::user()"></x-student.profile>
             </div>
             <div class="p-6 bg-white mt-6">
-                <x-student.reg_progress></x-student.reg_progress>
+                <x-student.reg_progress :step="Auth::user()->registrationStep()"></x-student.reg_progress>
             </div>
         </div>
     </div>

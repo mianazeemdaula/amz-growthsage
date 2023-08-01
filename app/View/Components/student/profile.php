@@ -11,9 +11,11 @@ class profile extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct()
+    public $student;
+    public function __construct($user)
     {
         //
+        $this->student = $user;
     }
 
     /**

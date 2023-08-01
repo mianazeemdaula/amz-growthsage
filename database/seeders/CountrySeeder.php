@@ -14,6 +14,13 @@ class CountrySeeder extends Seeder
     public function run(): void
     {
         //
-        Country::create(['name' => 'Pakistan', 'lang_id' => '1']);
+        Country::create([
+            'name' => 'Pakistan',
+            'language_id' => '1',
+            'iso_code' => '092',
+            'dial_code' => '92',
+            'currency' => 'PKR',
+
+        ]);
     }
 }

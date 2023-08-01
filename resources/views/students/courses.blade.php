@@ -4,7 +4,7 @@
 <x-student.header></x-student.header>
 @endsection
 @section('sidebar')
-<x-student.sidebar></x-student.sidebar>
+<x-student.sidebar page='courses'></x-student.sidebar>
 @endsection
 
 @section('body')
@@ -86,8 +86,10 @@
 
         </div>
         <!-- right side panel -->
-        <div class="p-6 bg-white">
-            <x-student.profile></x-student.profile>
+        <div class="">
+            <div class="p-6 bg-white">
+                <x-student.profile :user="Auth::user()"></x-student.profile>
+            </div>
         </div>
     </div>
 </div>

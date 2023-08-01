@@ -5,18 +5,18 @@
     </div>
     <div class="mt-12 px-8">
         <ul class="flex flex-col items-start space-y-4">
-            <li>
+            <li @if($page=='home' ) class="active" @endif>
                 <i class="bi-grid"></i>
                 <a href="{{url('students')}}">Home</a>
             </li>
-            <li>
+            <li @if($page=='courses' ) class="active" @endif>
                 <i class="bi-book"></i>
-                <a href="{{url('courses.view')}}">Courses</a>
+                <a href="{{url('courses/view')}}">Courses</a>
             </li>
 
-            <li>
+            <li @if($page=='reg' ) class="active" @endif>
                 <i class="bi-award"></i>
-                <a href="{{route('registration.create')}}">Registration</a>
+                <a href="{{route('students.create')}}">Registration</a>
             </li>
             <li>
                 <i class="bi-receipt"></i>
@@ -42,6 +42,11 @@
             <li>
                 <i class="bi-diagram-2"></i>
                 <a href="#">Team</a>
+            </li>
+
+            <li>
+                <i class="bi-power"></i>
+                <a href="{{url('signout')}}">Log Off</a>
             </li>
 
         </ul>

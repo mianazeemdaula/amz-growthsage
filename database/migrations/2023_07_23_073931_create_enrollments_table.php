@@ -16,13 +16,13 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('course_id');
             $table->unsignedBigInteger('cashier_id');
-            $table->unsignedBigInteger('fee_mode_id');
+            $table->unsignedBigInteger('feemode_id');
             $table->boolean('fee_paid')->default(false);
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('course_id')->references('id')->on('courses')->onDelete('cascade');
             $table->foreign('cashier_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('fee_mode_id')->references('id')->on('fee_modes')->onDelete('cascade');
+            $table->foreign('feemode_id')->references('id')->on('fee_modes')->onDelete('cascade');
         });
     }
 

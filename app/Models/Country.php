@@ -11,6 +11,11 @@ class Country extends Model
     use HasFactory;
     protected $fillable = [
         'name',
-        'lang_id',
+        'language_id',
+        'flag',
+        'iso_code',
+        'dial_code',
+        'currency',
+        'timezone',
     ];
 }

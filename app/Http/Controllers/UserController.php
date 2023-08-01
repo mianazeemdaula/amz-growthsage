@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class UserController extends Controller
 {
@@ -30,15 +32,18 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //
+        $request->merge(['code' => strtoupper(Str::random(6))]);
         $request->validate([
             'name' => 'required',
             'email' => 'required|email|unique:users',
             'password' => 'required',
+            'code' => 'required|unique:users',
         ]);
 
         try {
-
-            User::create($request->all());
+            $user = User::create($request->all());
+            $user->assignRole('student');
+            Auth::login($user);
             return redirect()->back()->with(['success' => 'Successfully registered']);
         } catch (Exception $e) {
             return redirect()->back()->withErrors($e->getMessage());

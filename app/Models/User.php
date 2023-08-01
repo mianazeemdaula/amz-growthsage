@@ -7,13 +7,14 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, HasRoles;
 
     /**
      * The attributes that are mass assignable.
@@ -24,6 +25,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'code',
     ];
 
     /**
@@ -51,13 +53,23 @@ class User extends Authenticatable
         return $this->hasOne(Balance::class);
     }
 
-    public function user(): BelongsTo
+    public function profile(): HasOne
     {
-        return $this->belongsTo(User::class);
+        return $this->hasOne(Student::class);
     }
 
     public function enrollments(): HasMany
     {
         return $this->hasMany(Enrollment::class);
+    }
+    public function registrationStep()
+    {
+        $step = 0;
+        if ($this->profile) return 1;
+        if (count($this->enrollments)) return 2;
+    }
+    public function scopeIn($query, $course_id)
+    {
+        return $query->where('course_id', $course_id);
     }
 }

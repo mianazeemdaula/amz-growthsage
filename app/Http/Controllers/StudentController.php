@@ -2,9 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Subscriber;
+use App\Http\Controllers\Controller;
+use App\Models\Country;
+use App\Models\Enrollment;
+use App\Models\Language;
+use App\Models\Student;
 use Exception;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Str;
 
 class StudentController extends Controller
 {
@@ -14,7 +20,10 @@ class StudentController extends Controller
     public function index()
     {
         //
-        return view('student.index');
+        $user = Auth::user();
+        $languages = Language::all();
+        $countries = Country::all();
+        return view('students.index', compact('user', 'languages', 'countries'));
     }
 
     /**
@@ -23,6 +32,10 @@ class StudentController extends Controller
     public function create()
     {
         //
+        $user = Auth::user();
+        $languages = Language::all();
+        $countries = Country::all();
+        return view('students.create', compact('user', 'languages', 'countries'));
     }
 
     /**
@@ -32,28 +45,20 @@ class StudentController extends Controller
     {
         //
         $request->validate([
-            'email' => 'required|email',
+            'user_id' => 'required',
+            'language_id' => 'required',
+            'country_id' => 'required',
             'phone' => 'required',
+            'code' => 'string|size:6'
         ]);
 
-        $exists = Subscriber::where('email', $request->email)->first();
-        if (!$exists) {
-            try {
+        try {
 
-                Subscriber::create($request->all());
-                return response()->json([
-                    'msg' => "Successfully subscribed",
-                ]);
-            } catch (Exception $e) {
-                return response()->json([
-                    'msg' => $e->getMessage(),
-                ]);
-                // something went wrong
-            }
-        } else {
-            return response()->json([
-                'msg' => "Already subscribed!",
-            ]);
+            $user = Student::create($request->all());
+            return redirect()->back()->with(['success' => 'Profile saved successfuly']);
+        } catch (Exception $e) {
+            return redirect()->back()->withErrors($e->getMessage());
+            // something went wrong
         }
     }
 

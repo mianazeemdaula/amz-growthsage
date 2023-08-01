@@ -38,15 +38,18 @@
         <!-- if registration requestion successful -->
         @if(session('success'))
         <div class="container">
-            <div class="flex flex-col justify-center items-center bg-green-100 rounded-lg text-xl p-8 my-16">
-                <h4 class="text-secondary">Success!</h4>
-                <p class="text-slate-800 mt-6">{{session('success')}}</p>
+            <div class="flex flex-col justify-center items-center bg-green-100 rounded-lg text-xl p-8 my-4">
+                <h4 class="text-secondary">Successfully registered!</h4>
+                <a href="{{url('/')}}">
+                    <h4 class="text-blue-600 hover:text-blue-800 mt-4">Go Next</h4>
+                </a>
             </div>
+
         </div>
         <!-- display registration form -->
         @else
         <div class="container">
-            <div class="nav-tab-wrapper tabs  section-padding">
+            <div class="nav-tab-wrapper tabs section-padding">
                 <div class="container">
                     <div class=" grid grid-cols-12 gap-[30px]">
                         <div class="xl:col-span-5 lg:col-span-6 col-span-12 ">
