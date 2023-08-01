@@ -10,7 +10,7 @@ class Query extends Model
     use HasFactory;
     protected $fillable = [
         'email',
-        'mobile',
+        'phone',
         'question',
         'replied',
     ];

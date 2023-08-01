@@ -33,10 +33,7 @@ class StudentController extends Controller
         //
         $request->validate([
             'email' => 'required|email',
-            'mobile' => 'required',
-            // 'experience' =>'required',
-            // 'province' =>'required',
-            // 'city' =>'required',
+            'phone' => 'required',
         ]);
 
         $exists = Subscriber::where('email', $request->email)->first();

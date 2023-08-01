@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('queries', function (Blueprint $table) {
             $table->id();
             $table->string('email', 50);
-            $table->string('mobile', 15);
+            $table->string('phone', 15);
             $table->text('question');
             $table->boolean('replied')->default(false);
             $table->timestamps();

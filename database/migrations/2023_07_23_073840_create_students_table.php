@@ -14,15 +14,18 @@ return new class extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
+            $table->unsignedBigInteger('referral_id');
             $table->unsignedBigInteger('country_id');
-            $table->string('mobile', 15);
+            $table->string('phone', 15);
             $table->string('province', 30);
             $table->string('city', 30);
             $table->string('address', 100);
             $table->string('experience');
             $table->string('lang', 2);
+            $table->string('image', 20);
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('referral_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
         });
     }
