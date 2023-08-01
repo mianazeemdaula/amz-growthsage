@@ -46,7 +46,7 @@
 
             <li>
                 <i class="bi-power"></i>
-                <a href="{{url('signout')}}">Log Off</a>
+                <a href="{{url('signout')}}">Signout</a>
             </li>
 
         </ul>

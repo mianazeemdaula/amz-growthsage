@@ -37,7 +37,7 @@
         <a href="" class="pallet-box">
             <div class="flex-1">
                 <div class="title">Courses</div>
-                <div class="h2">1/1</div>
+                <div class="h2">{{$user->enrollments->count()}}/1</div>
             </div>
             <div class="ico bg-orange-100">
                 <i class="bi bi-book text-orange-600"></i>
@@ -117,6 +117,25 @@
                 </div>
             </div>
             <div class="p-6 rounded-lg  bg-white mt-6">
+
+                @if ($errors->any())
+                <div class="alert-danger mt-8">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+                @endif
+
+                @if(session('success'))
+                <div class="flex alert-success items-center mt-8">
+                    <i class="bi-info-circle mr-4"></i>
+                    {{session('success')}}
+                </div>
+                @endif
+
+
                 <div class="h2">Complete Your Profile</div>
                 <div class="text-slate-500 mt-1">Please provide following information</div>
                 <form action="{{route('students.store')}}" method='post' class="flex flex-col w-full mt-4" enctype="multipart/form-data" onsubmit="return validate(event)">
