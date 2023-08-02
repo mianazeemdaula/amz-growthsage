@@ -16,7 +16,6 @@ class StudentSeeder extends Seeder
         //
         Student::create([
             'user_id' => 3,
-            'referral_id' => null,
             'language_id' => 1,
             'country_id' => 1,
             'phone' => '03001236482',

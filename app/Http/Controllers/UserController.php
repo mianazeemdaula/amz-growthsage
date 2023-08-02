@@ -39,10 +39,21 @@ class UserController extends Controller
             'password' => 'required',
             'code' => 'required|unique:users',
         ]);
-        if($request->has('referral')){
-            $ref = User::where('code',$request->referral)->first();   
-            if($ref){
+
+        if ($request->code != '') {
+            $user = User::where('code', $request->code)->first();
+            if ($user)
+                $request->merge(['referral_id' => $user->id]);
+            else
+                return redirect()->back()->with(['warning' => 'Referral code invalid!']);
+        }
+
+
+        if ($request->has('referral')) {
+            $ref = User::where('code', $request->referral)->first();
+            if ($ref) {
                 // set this id of the user to the student referral_id
+
             }
         }
         try {

@@ -104,11 +104,7 @@
                             <label for="">Experience (if any)</label>
                             <input type="text" name='experience' class='custom-input'>
                         </div>
-                        <div>
-                            <label for="">Referral Code</label>
-                            <input type="text" name="code" class="custom-input" placeholder="Referral Code if any">
-                        </div>
-                        <div></div>
+
                         <div class="mt-4">
                             <button type="submit" class="btn-blue">Submit Now</button>
                         </div>

@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('students', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('referral_id')->nullable();
+            // $table->unsignedBigInteger('referral_id')->nullable();
             $table->unsignedBigInteger('language_id');
             $table->unsignedBigInteger('country_id');
             $table->string('phone', 15);
@@ -25,7 +25,6 @@ return new class extends Migration
             $table->string('image', 20)->nullable();
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('referral_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('language_id')->references('id')->on('languages')->onDelete('cascade');
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('cascade');
         });

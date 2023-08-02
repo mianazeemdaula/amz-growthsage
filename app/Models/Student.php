@@ -12,7 +12,7 @@ class Student extends Model
     use HasFactory;
     protected $fillable = [
         'user_id',
-        'referral_id',
+        // 'referral_id',
         'language_id',
         'country_id',
         'phone',

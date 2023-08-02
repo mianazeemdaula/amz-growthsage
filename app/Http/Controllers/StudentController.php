@@ -49,16 +49,8 @@ class StudentController extends Controller
             'country_id' => 'required',
             'phone' => 'required',
             'city' => 'required',
-            'code' => 'nullable|string|size:6'
-        ]);
 
-        if ($request->code != '') {
-            $user = User::where('code', $request->code)->first();
-            if ($user)
-                $request->merge(['referral_id' => $user->id]);
-            else
-                return redirect()->back()->with(['warning' => 'Referral code invalid!']);
-        }
+        ]);
 
         // in case, referral code missed, by default referal_id will be null
 

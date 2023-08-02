@@ -18,9 +18,11 @@ return new class extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('code');
+            $table->string('referral_id')->nullable();
             $table->rememberToken();
-
             $table->timestamps();
+
+            // $table->foreign('referral_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
