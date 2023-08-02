@@ -2,7 +2,7 @@
     <div class="h3">Profile</div>
     <div class="flex flex-col">
         <div class="flex items-center mt-4">
-            @if($student->profile)
+            @if($user->profile)
             <div class="flex items-center w-full">
                 <div class="h4 text-secondary">100%</div>
                 <div class="flex-1 border-b border-2 border-teal-600 mx-4"></div>
@@ -18,38 +18,45 @@
         </div>
         <div class="flex text-sm mt-4">
             <div class="w-8"><i class="bi-person"></i></div>
-            <div>{{$student->name}}</div>
+            <div>{{$user->name}}</div>
+        </div>
+        <div class="flex text-sm mt-4">
+            <div class="w-8"><i class="bi-hash"></i></div>
+            <div>{{$user->code}}</div>
         </div>
         <div class="flex text-sm mt-4">
             <div class="w-8"><i class="bi-envelope-at"></i></div>
-            <div>{{$student->email}}</div>
+            <div>{{$user->email}}</div>
         </div>
-        @if($student->profile)
+        @if($mode=='full')
         <div class="flex text-sm mt-4">
             <div class="w-8"><i class="bi-phone"></i></div>
-            <div>{{$student->profile->phone}}</div>
+            <div>@if($user->profile) {{$user->profile->phone}} @endif</div>
         </div>
         <div class="flex text-sm mt-4">
             <div class="w-8"><i class="bi-translate"></i></div>
-            <div>{{$student->profile->language->name}}</div>
+            <div>@if($user->profile) {{$user->profile->language->name}} @endif</div>
         </div>
         <div class="flex text-sm mt-4">
             <div class="w-8"><i class="bi-globe"></i></div>
-            <div>{{$student->profile->country->name}}</div>
+            <div>@if($user->profile) {{$user->profile->country->name}} @endif</div>
         </div>
+
         <div class="flex text-sm mt-4">
             <div class="w-8"><i class="bi-pin-map"></i></div>
-            <div>{{$student->profile->province}}</div>
+            <div>@if($user->profile) {{$user->profile->province}} @endif</div>
         </div>
         <div class="flex text-sm mt-4">
             <div class="w-8"><i class="bi-geo-alt"></i></div>
-            <div>{{$student->profile->city}}</div>
+            <div>@if($user->profile) {{$user->profile->city}} @endif</div>
         </div>
         <div class="flex text-sm mt-4">
             <div class="w-8"><i class="bi-envelope"></i></div>
-            <div>{{$student->profile->address}}</div>
+            <div>@if($user->profile) {{$user->profile->address}} @endif</div>
         </div>
+
         @endif
+
         <div class="divider mt-4"></div>
         <div class="flex text-sm mt-4">
             <div class="w-8"><i class="bi-key"></i></div>

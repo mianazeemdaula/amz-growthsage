@@ -11,7 +11,7 @@
             </li>
             <li @if($page=='reg' ) class="active" @endif>
                 <i class="bi-award"></i>
-                <a href="{{route('enrollments')}}">Registration</a>
+                <a href="{{url('enrollments')}}">Registration</a>
             </li>
             <li @if($page=='courses' ) class="active" @endif>
                 <i class="bi-book"></i>

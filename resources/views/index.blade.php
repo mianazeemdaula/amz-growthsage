@@ -17,7 +17,7 @@
                 </h1>
                 <p class="text-slate-600 mt-8 text-2xl">Thoughtfully designed curriculum that combines industry insights and practical skills for you.</p>
                 <div class="flex-none mt-8">
-                    <a href="{{url('login')}}" class="btn btn-primary w-full lg:w-auto">Get Started Now</a>
+                    <a href="{{url('web/login')}}" class="btn btn-primary w-full lg:w-auto">Get Started Now</a>
                 </div>
             </div>
 

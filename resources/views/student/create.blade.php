@@ -109,38 +109,80 @@
                 <x-student.noprofile_msg></x-student.noprofile_msg>
             </div>
             <div class="p-6 rounded-lg  bg-white mt-6">
-                <div class="h3 text-blue-600">How can I access my course content?</div>
-                <ul class="mt-2 ml-3">
-                    <li class="flex items-center space-x-3 step done">
-                        <i class="bi-1-circle"></i>
-                        <div>Sign Up</div>
-                        <i class="bi-check-lg"></i>
-                    </li>
-                    <li class="flex items-center space-x-3 mt-2">
-                        <i class="bi-2-circle"></i>
-                        <div>Complete your profile</div>
-                    </li>
-                    <li class="flex items-center space-x-3 mt-2">
-                        <i class="bi-3-circle"></i>
-                        <div>Apply for regisration</div>
-                    </li>
-                    <li class="flex items-center space-x-3 mt-2">
-                        <i class="bi-4-circle"></i>
-                        <div>Pay your fee through bank or JazzCash </div>
-                    </li>
-                    <li class="flex items-center space-x-3 mt-2">
-                        <i class="bi-5-circle"></i>
-                        <div>Update your payment status </div>
-                    </li>
-                    <li class="flex items-center space-x-3 mt-2">
-                        <i class="bi-6-circle"></i>
-                        <div>Wait for system confirmation (max 24 hrs) </div>
-                    </li>
 
-                </ul>
-                <div class="mt-4">
-                    <a href="{{route('students.create')}}" class="btn-blue">Go Next</a>
+                <div class="h2">Complete Your Profile</div>
+                <div class="text-slate-500 mt-1">Please provide following information</div>
+
+                @if ($errors->any())
+                <div class="alert-danger mt-8">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
                 </div>
+                @endif
+
+                @if(session('success'))
+                <div class="flex alert-success items-center mt-8">
+                    <i class="bi-info-circle mr-4"></i>
+                    {{session('success')}}
+                </div>
+                @endif
+
+                <form action="{{route('students.store')}}" method='post' class="flex flex-col w-full mt-4" enctype="multipart/form-data" onsubmit="return validate(event)">
+                    @csrf
+                    <input type="hidden" name='user_id' value="{{$user->id}}">
+                    <input type="hidden" name="course_id" value="1">
+                    <div class="grid grid-cols-1 lg:grid-cols-2 mt-3 text-slate-600 gap-4">
+                        <div>
+                            <label for="">Language*</label>
+                            <select name="language_id" id="" class="w-full custom-input">
+                                @foreach($languages as $language)
+                                <option value="{{$language->id}}">{{$language->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div>
+                            <label for="">Country*</label>
+                            <select name="country_id" id="" class="w-full custom-input">
+                                @foreach($countries as $country)
+                                <option value="{{$country->id}}">{{$country->name}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                        <div>
+                            <label for="">Province</label>
+                            <input type="text" name='province' class='custom-input' value="Punjab">
+                        </div>
+                        <div>
+                            <label for="">City*</label>
+                            <input type="text" name='city' class='custom-input'>
+                        </div>
+
+                        <div class="lg:col-span-2">
+                            <label for="">Address</label>
+                            <input type="text" name='address' class='custom-input'>
+                        </div>
+                        <div>
+                            <label for="">Phone*</label>
+                            <input type="text" name='phone' class='custom-input'>
+                        </div>
+                        <div>
+                            <label for="">Experience (if any)</label>
+                            <input type="text" name='experience' class='custom-input'>
+                        </div>
+                        <div>
+                            <label for="">Referral Code</label>
+                            <input type="text" name="code" class="custom-input" placeholder="Referral Code if any">
+                        </div>
+                        <div></div>
+                        <div class="mt-4">
+                            <button type="submit" class="btn-blue">Submit Now</button>
+                        </div>
+                    </div>
+
+                </form>
             </div>
             @endif
 
@@ -149,7 +191,7 @@
         <!-- right sidebar starts -->
         <div>
             <div class="p-6 bg-white">
-                <x-student.profile :user="$user"></x-student.profile>
+                <x-student.profile :user="$user" mode='full'></x-student.profile>
                 <!-- <x-student.upcoming></x-student.upcoming> -->
             </div>
         </div>

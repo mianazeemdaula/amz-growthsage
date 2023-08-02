@@ -88,7 +88,7 @@
                                     </button>
                                 </form>
                                 <div class="mt-8 py-4 border-t border-slate-400 border-dashed">
-                                    <a href="{{url('login')}}" class="text-secondary text-xl">I already have an account</a>
+                                    <a href="{{url('web/login')}}" class="text-secondary text-xl">I already have an account</a>
                                 </div>
                             </div>
                         </div>

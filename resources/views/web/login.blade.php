@@ -63,7 +63,7 @@
                         </div>
                         <div class="xl:col-span-7 lg:col-span-6 col-span-12">
                             <div class="bg-white shadow-box7 p-8 rounded-md">
-                                <form class="form" method="post" action="{{url('login')}}">
+                                <form class="form" method="post" action="{{url('web/login')}}">
                                     @csrf
                                     <div class="grid grid-cols-1 gap-[30px] mt-6 ">
                                         <div>
@@ -78,7 +78,7 @@
                                     </button>
                                 </form>
                                 <div class="mt-8 py-4 border-t border-slate-400 border-dashed">
-                                    <a href="{{url('register')}}" class="text-secondary text-xl">I don't have an account</a>
+                                    <a href="{{url('web/register')}}" class="text-secondary text-xl">I don't have an account</a>
                                 </div>
                             </div>
                         </div>
