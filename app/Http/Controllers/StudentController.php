@@ -22,9 +22,7 @@ class StudentController extends Controller
     {
         //
         $user = Auth::user();
-        $languages = Language::all();
-        $countries = Country::all();
-        return view('student.index', compact('user', 'languages', 'countries'));
+        return view('student.index', compact('user'));
     }
 
     /**
@@ -33,6 +31,10 @@ class StudentController extends Controller
     public function create()
     {
         //
+        $user = Auth::user();
+        $languages = Language::all();
+        $countries = Country::all();
+        return view('student.create', compact('user', 'languages', 'countries'));
     }
 
     /**
@@ -42,11 +44,12 @@ class StudentController extends Controller
     {
         //
         $request->validate([
-            'user_id' => 'required',
+            'user_id' => 'required|unique:students',
             'language_id' => 'required',
             'country_id' => 'required',
             'phone' => 'required',
-            'code' => 'string|size:6'
+            'city' => 'required',
+            'code' => 'nullable|string|size:6'
         ]);
 
         if ($request->code != '') {
@@ -54,7 +57,7 @@ class StudentController extends Controller
             if ($user)
                 $request->merge(['referral_id' => $user->id]);
             else
-                return redirect()->back()->with(['success' => 'Referral code invalid!']);
+                return redirect()->back()->with(['warning' => 'Referral code invalid!']);
         }
 
         // in case, referral code missed, by default referal_id will be null
@@ -62,7 +65,7 @@ class StudentController extends Controller
         try {
 
             $user = Student::create($request->all());
-            return redirect()->back()->with(['success' => 'Profile saved successfuly']);
+            return redirect('students')->with(['success' => 'Profile saved successfuly']);
         } catch (Exception $e) {
             return redirect()->back()->withErrors($e->getMessage());
             // something went wrong

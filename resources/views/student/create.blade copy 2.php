@@ -28,44 +28,74 @@
     <!-- middle content panel starts-->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-y-8 md:gap-x-8 mt-8">
         <div class="relative col-span-2">
+            <!-- user has already taken some course -->
+            @if($user->enrollments->count()>0)
+            <div class="p-6 rounded-lg bg-white">
+                <div class="h3">Today's Activity</div>
+                <div class="w-full lg:w-3/4 mx-auto mt-8">
+                    <div class="grid grid-cols-1 md:grid-cols-2">
+                        <div class="flex">
+                            <div class="w-12">
+                                <i class="bi-laptop"></i>
+                            </div>
+                            <div class="flex-col flex-1">
+                                <div class="text-slate-500 text-sm">Class</div>
+                                <div class="text-sm font-bold">Amazon</div>
+                            </div>
+                        </div>
+                        <div class="flex">
+                            <div class="w-12">
+                                <i class="bi-clipboard"></i>
+                            </div>
+                            <div class="flex-col flex-1">
+                                <div class="text-slate-500 text-sm">Assignment</div>
+                                <div class="text-sm font-bold">2 Assignments</div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            @elseif($user->profile)
+            <!-- user has not taken any course, profile complete -->
+            <!-- offer courses for registration  -->
+            <div class="p-6 rounded-lg  bg-blue-100">
+                <x-student.nocourse_msg></x-student.nocourse_msg>
+            </div>
+            <div class="p-6 rounded-lg  bg-white mt-6">
+                <x-student.course></x-student.course>
+            </div>
+            @else
             <!-- profile incomplete -->
-            <div class="p-6 rounded-lg  bg-white">
+            <div class="p-6 rounded-lg  bg-blue-100">
+                <x-student.noprofile_msg></x-student.noprofile_msg>
+            </div>
+            <div class="p-6 rounded-lg  bg-white mt-6">
+
                 <div class="h2">Complete Your Profile</div>
                 <div class="text-slate-500 mt-1">Please provide following information</div>
 
                 @if ($errors->any())
                 <div class="alert-danger mt-8">
-                    <div class="w-10">
-                        <i class="bi-emoji-frown text-[24px]"></i>
-                    </div>
-                    <div>
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
                 </div>
                 @endif
 
                 @if(session('success'))
-                <div class="alert-success mt-8">
-                    <i class="bi-emoji-smile text-[24px] mr-4"></i>
+                <div class="flex alert-success items-center mt-8">
+                    <i class="bi-info-circle mr-4"></i>
                     {{session('success')}}
-                </div>
-                @endif
-
-                @if(session('warning'))
-                <div class="alert-warning mt-8">
-                    <i class="bi-emoji-neutral text-[24px] mr-4"></i>
-                    {{session('warning')}}
                 </div>
                 @endif
 
                 <form action="{{route('students.store')}}" method='post' class="flex flex-col w-full mt-4" enctype="multipart/form-data" onsubmit="return validate(event)">
                     @csrf
                     <input type="hidden" name='user_id' value="{{$user->id}}">
+                    <input type="hidden" name="course_id" value="1">
                     <div class="grid grid-cols-1 lg:grid-cols-2 mt-3 text-slate-600 gap-4">
                         <div>
                             <label for="">Language*</label>
@@ -116,6 +146,7 @@
 
                 </form>
             </div>
+            @endif
 
         </div>
         <!-- middle content panel ended -->

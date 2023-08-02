@@ -59,6 +59,6 @@
         <div class="text-red-800 font-bold text-sm">Not Registered</div>
     </div>
     <div class="mt-8">
-        <a href="" class="btn-blue">Register Now</a>
+        <a href="{{route('enrollments.create')}}" class="btn-blue">Register Now</a>
     </div>
 </div>

@@ -24,45 +24,7 @@
     </div>
 
     <!-- pallet boxes -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-        <a href="" class="pallet-box">
-            <div class="flex-1">
-                <div class="title">Profile</div>
-                <div class="h2">@if($user->profile) 100% @else 40% @endif</div>
-            </div>
-            <div class="ico bg-green-100">
-                <i class="bi bi-person-circle text-green-600"></i>
-            </div>
-        </a>
-        <a href="" class="pallet-box">
-            <div class="flex-1">
-                <div class="title">Courses</div>
-                <div class="h2">{{$user->enrollments->count()}}/1</div>
-            </div>
-            <div class="ico bg-orange-100">
-                <i class="bi bi-book text-orange-600"></i>
-            </div>
-        </a>
-        <a href="" class="pallet-box">
-            <div class="flex-1 ">
-                <div class="title">Task Finished</div>
-                <div class="h2">5/10</div>
-            </div>
-            <div class="ico bg-teal-100">
-                <i class="bi bi-card-checklist text-teal-600"></i>
-            </div>
-        </a>
-        <a href="" class="pallet-box">
-            <div class="flex-1">
-                <div class="title">Scorage</div>
-                <div class="h2">60%</div>
-            </div>
-            <div class="ico bg-sky-100">
-                <i class="bi bi-graph-up text-sky-600"></i>
-            </div>
-        </a>
-    </div>
-
+    <x-student.pallets :user='Auth::user()'></x-student.pallets>
     <!-- middle content panel starts-->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-y-8 md:gap-x-8 mt-8">
         <div class="relative col-span-2">
@@ -95,11 +57,20 @@
                 </div>
             </div>
             @elseif($user->profile)
+            <!-- if student successfully cretated -->
+            @if(session('success'))
+            <div class="alert-success mb-8">
+                <i class="bi-emoji-smile text-[24px] mr-4"></i>
+                {{session('success')}}
+            </div>
+            @endif
+
             <!-- user has not taken any course, profile complete -->
             <!-- offer courses for registration  -->
             <div class="p-6 rounded-lg  bg-blue-100">
                 <x-student.nocourse_msg></x-student.nocourse_msg>
             </div>
+
             <div class="p-6 rounded-lg  bg-white mt-6">
                 <x-student.course></x-student.course>
             </div>
@@ -138,7 +109,8 @@
                     </li>
 
                 </ul>
-                <div class="mt-4">
+                <div class="divider my-4"></div>
+                <div class="">
                     <a href="{{route('students.create')}}" class="btn-blue">Go Next</a>
                 </div>
             </div>
@@ -149,7 +121,7 @@
         <!-- right sidebar starts -->
         <div>
             <div class="p-6 bg-white">
-                <x-student.profile :user="$user"></x-student.profile>
+                <x-student.profile :user="$user" mode='full'></x-student.profile>
                 <!-- <x-student.upcoming></x-student.upcoming> -->
             </div>
         </div>
