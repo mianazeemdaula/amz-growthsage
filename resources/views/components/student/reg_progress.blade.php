@@ -1,5 +1,5 @@
 <div>
-    <div class="h3">Registraton Progress</div>
+    <div class="h3">Enrollment Progress</div>
     <ul class="ml-3 text-sm mt-4">
         <li class="flex items-center space-x-3 step @if($step>0) done @endif">
             <i class="bi-1-circle"></i>

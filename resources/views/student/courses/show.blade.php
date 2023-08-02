@@ -122,6 +122,9 @@
             <div class="p-6 bg-white">
                 <x-student.profile :user="$user"></x-student.profile>
             </div>
+            <div class="p-6 bg-white mt-6">
+                <x-student.reg_progress :step="$user->enrollmentStatusFor(1)"></x-student.reg_progress>
+            </div>
         </div>
     </div>
 </div>

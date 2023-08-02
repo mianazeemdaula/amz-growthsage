@@ -12,11 +12,13 @@
     <!--welcome  -->
     <div class="flex items-center py-6">
         <div class="flex-1">
-            <div class="h2">Registration</div>
+            <div class="h2">Invoices</div>
             <div class="bread-crumb">
                 <a href="{{url('students')}}" class="link">Home</a>
                 <div>/</div>
-                <div>Registration</div>
+                <div>Invoices</div>
+                <div>/</div>
+                <div>Upload proof</div>
             </div>
         </div>
 
@@ -48,6 +50,8 @@
 
         <div class="relative col-span-2">
             <div class="p-6 bg-white">
+                <div class="h3">Please upload fee payment proof</div>
+                <p class="mt-2 leading-relaxed">Images in .png, .jpg and .jpeg formats will be accepted with maximum size upto 5MB</p>
                 <form action="{{route('enrollments.update',$enrollment)}}" method='post' class="flex flex-col w-full mt-4" enctype="multipart/form-data" onsubmit="return validate(event)">
                     @csrf
                     @method('PATCH')
@@ -62,7 +66,7 @@
 
                         </div>
                         <div class="flex flex-col justify-center items-center">
-                            <img src="{{asset('images/no-image.png')}}" alt="" id='preview_img' class="w-60">
+                            <img src="{{asset('images/payments/no-image.png')}}" alt="" id='preview_img' class="w-60">
                             <button type="submit" class="btn-blue w-60 py-2 mt-4">Upload Image</button>
                         </div>
                     </div>

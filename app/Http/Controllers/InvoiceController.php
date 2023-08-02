@@ -38,9 +38,10 @@ class InvoiceController extends Controller
     public function show(int $id)
     {
         //
-        $enrollment = Enrollment::where('user_id', Auth::user()->id)
+        $user = Auth::user();
+        $enrollment = Enrollment::where('user_id', $user->id)
             ->where('course_id', $id)->first();
-        return view('student.invoices.show', compact('enrollment'));
+        return view('student.invoices.show', compact('user', 'enrollment'));
     }
 
     /**
@@ -68,8 +69,8 @@ class InvoiceController extends Controller
     }
     public function uploadProof($enrollment_id)
     {
-
+        $user = Auth::user();
         $enrollment = Enrollment::find($enrollment_id);
-        return view('student.invoices.proof', compact('enrollment'));
+        return view('student.invoices.proof', compact('user', 'enrollment'));
     }
 }

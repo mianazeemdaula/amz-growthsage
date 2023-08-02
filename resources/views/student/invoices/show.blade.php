@@ -12,11 +12,11 @@
     <!--welcome  -->
     <div class="flex items-center py-6">
         <div class="flex-1">
-            <div class="h2">Registration</div>
+            <div class="h2">Invoices</div>
             <div class="bread-crumb">
                 <a href="{{url('students')}}" class="link">Home</a>
                 <div>/</div>
-                <div>Registration</div>
+                <div>Invoice</div>
             </div>
         </div>
 
@@ -47,48 +47,63 @@
     <div class="grid grid-cols-1 md:grid-cols-3 gap-y-8 md:gap-x-8">
 
         <div class="relative col-span-2">
-            <div class="p-6 bg-white">
-                <div class="p-6 rounded-lg bg-white mt-6">
-                    <div class="grid grid-cols-1 lg:grid-cols-2 rounded-lg border-slate-300 gap-4">
-                        <div class="h3 lg:col-span-2">Payments Options</div>
-                        <div class="divider my-6 lg:col-span-2"></div>
-                        <div class="px-8">
-                            <div class="flex justify-center item-center h-24">
-                                <img src="{{asset('/images/icon/bank.png')}}" alt="" class="w-24">
-                            </div>
+            <div class="p-6 rounded-lg bg-white">
+                <div class="h3 lg:col-span-2">Payments Options</div>
+                <p class="text-slate-600 leading-relaxed mt-2">
+                    Please use one of the following payment options. After payment you must have to upload soft copy proof of your payment.
+                </p>
+                <div class="grid grid-cols-1 lg:grid-cols-2 rounded-lg border-slate-300 gap-4 mt-4">
 
-                            <div class="text-slate-500 text-sm">Bank</div>
-                            <div class="h3">Habib Metropolitan Bank</div>
-
-                            <div class="mt-4 text-slate-500 text-sm">Account No.</div>
-                            <div class="h3">6064320357714104853</div>
-
-                            <div class="mt-4 text-slate-500 text-sm">Account Title</div>
-                            <div class="h3">Zahid saleem</div>
-
+                    <div class="divider lg:col-span-2"></div>
+                    <div class="px-8">
+                        <div class="flex justify-center item-center h-24">
+                            <img src="{{asset('/images/icon/bank.png')}}" alt="" class="w-24">
                         </div>
-                        <div class="px-8 border-t lg:border-t-0 lg:border-l boder-dashed border-slate-300">
-                            <div class="flex justify-center items-center h-24">
-                                <img src="{{asset('/images/icon/jazzcash.png')}}" alt="" class="w-16">
-                            </div>
-                            <div class="flex justify-center mt-4">
-                                <img src="{{asset('/images/icon/QR.png')}}" alt="" class="w-32">
-                            </div>
+
+                        <div class="text-slate-500 text-sm">Bank</div>
+                        <div class="h3">Habib Metropolitan Bank</div>
+
+                        <div class="mt-4 text-slate-500 text-sm">Account No.</div>
+                        <div class="h3">6064320357714104853</div>
+
+                        <div class="mt-4 text-slate-500 text-sm">Account Title</div>
+                        <div class="h3">Zahid saleem</div>
+
+                    </div>
+                    <div class="px-8 border-t lg:border-t-0 lg:border-l boder-dashed border-slate-300">
+                        <div class="flex justify-center items-center h-24">
+                            <img src="{{asset('/images/icon/jazzcash.png')}}" alt="" class="w-16">
+                        </div>
+                        <div class="flex justify-center mt-4">
+                            <img src="{{asset('/images/icon/QR.png')}}" alt="" class="w-32">
                         </div>
                     </div>
-                    <div class="divider my-6"></div>
+                </div>
+                <div class="divider my-6"></div>
+                <div class="flex flex-col items-center">
+                    <div class="w-48 h-48">
+                        @if($enrollment->image)
+                        <img src="{{asset('images/payments/'.$enrollment->image)}}" alt="">
+                        @else
+                        <img src="{{asset('images/payments/no-image.png')}}" alt="">
+                        @endif
+                    </div>
+                    <p class="text-sm text-slate-600"></p>
+
                     <a href="{{url('invoice/proof', $enrollment->id)}}" class="btn-blue">Upload Payment Proof</a>
+
                 </div>
             </div>
+
         </div>
-        <!-- left panel ended -->
+        <!-- middle panel ended -->
         <!-- right side panel started-->
         <div class="">
             <div class="p-6 bg-white">
-                <x-student.profile :user="Auth::user()"></x-student.profile>
+                <x-student.profile :user="$user"></x-student.profile>
             </div>
             <div class="p-6 bg-white mt-6">
-                <x-student.reg_progress :step="Auth::user()->enrollmentStatusFor(1)"></x-student.reg_progress>
+                <x-student.reg_progress :step="$user->enrollmentStatusFor(1)"></x-student.reg_progress>
             </div>
         </div>
     </div>
