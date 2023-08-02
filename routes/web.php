@@ -28,7 +28,7 @@ Route::view('web/blogs', 'web.blogs');
 Route::get('blogs/{id}', [BlogController::class, 'show'])->name('blogs.show');
 Route::view('web/about', 'web.about');
 Route::view('web/contact', 'web.contact');
-Route::view('web/register', 'web.register');
+Route::view('web/register/{code?}', 'web.register');
 Route::view('web/login', 'web.login');
 Route::post('web/login', [AuthController::class, 'login']);
 Route::get('signout', [AuthController::class, 'signout'])->name('signout');

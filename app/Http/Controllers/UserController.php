@@ -39,7 +39,12 @@ class UserController extends Controller
             'password' => 'required',
             'code' => 'required|unique:users',
         ]);
-
+        if($request->has('referral')){
+            $ref = User::where('code',$request->referral)->first();   
+            if($ref){
+                // set this id of the user to the student referral_id
+            }
+        }
         try {
             $user = User::create($request->all());
             $user->assignRole('student');
