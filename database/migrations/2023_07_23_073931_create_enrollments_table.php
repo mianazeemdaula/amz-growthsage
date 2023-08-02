@@ -15,10 +15,11 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('course_id');
-            $table->unsignedBigInteger('cashier_id');
-            $table->unsignedBigInteger('feemode_id');
+            $table->unsignedBigInteger('cashier_id')->nullable();
+            $table->unsignedBigInteger('feemode_id')->nullable();
             $table->boolean('fee_paid')->default(false);
-            $table->boolean('notified')->default(false);
+            $table->boolean('fee_verified')->default(false);
+            $table->string('image', 100)->nullable();
 
             $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

@@ -11,6 +11,7 @@ use App\Http\Controllers\AuthController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CourseEnrollmentController;
 use App\Http\Controllers\EnrollmentController;
+use App\Http\Controllers\InvoiceController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -47,7 +48,8 @@ Route::group(['middleware' => ['role:student']], function () {
     Route::resource('students', StudentController::class);
     Route::resource('enrollments', EnrollmentController::class);
     Route::resource('courses', CourseController::class);
-    Route::resource('course-enrollments', CourseEnrollmentController::class);
+    Route::resource('invoices', InvoiceController::class);
+    Route::get('invoice/proof/{enrollment_id}', [InvoiceController::class, 'uploadProof']);
 });
 
 // Route::get('home', function ($id) {

@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Enrollment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class CourseEnrollmentController extends Controller
+class InvoiceController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -21,7 +22,6 @@ class CourseEnrollmentController extends Controller
     public function create()
     {
         //
-
     }
 
     /**
@@ -35,9 +35,12 @@ class CourseEnrollmentController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(int $id)
     {
         //
+        $enrollment = Enrollment::where('user_id', Auth::user()->id)
+            ->where('course_id', $id)->first();
+        return view('student.invoices.show', compact('enrollment'));
     }
 
     /**
@@ -62,5 +65,11 @@ class CourseEnrollmentController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+    public function uploadProof($enrollment_id)
+    {
+
+        $enrollment = Enrollment::find($enrollment_id);
+        return view('student.invoices.proof', compact('enrollment'));
     }
 }

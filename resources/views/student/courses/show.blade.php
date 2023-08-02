@@ -26,7 +26,7 @@
     <!-- middle panel-->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-y-8 md:gap-x-8">
         <div class="relative col-span-2">
-            @if(Auth::user()->enrollments->count()==0)
+            @if($user->enrollments->count()==0)
             <div class="p-6 rounded-lg  bg-blue-100 mb-8">
                 <x-student.nocourse_msg></x-student.nocourse_msg>
             </div>
@@ -80,29 +80,37 @@
                 <!-- registration status -->
 
                 <div class="my-6 border-t border-slate-200 border-dashed"></div>
-                @if(Auth::user()->enrollmentStatusFor(1)==0)
+                @if($user->enrollmentStatusFor(1)==0)
                 <div class="flex justify-between">
-                    <div class="h3">Registration Status</div>
-                    <div class="text-red-800 font-bold text-sm">Not Registered</div>
+                    <div class="h3">Enrollment Status</div>
+                    <div class="text-red-800 font-bold text-sm">Profile Incomplete</div>
                 </div>
                 <div class="mt-8">
-                    <a href="{{url('enrollments/create')}}" class="btn-blue">Register Now</a>
+                    <a href="{{route('students.create')}}" class="btn-blue">Update Profile</a>
                 </div>
-                @elseif(Auth::user()->enrollmentStatusFor(1)==1)
+                @elseif($user->enrollmentStatusFor(1)==1)
                 <div class="flex justify-between">
-                    <div class="h3">Registration Status</div>
-                    <div class="text-red-800 font-bold text-sm">Profile Completed</div>
+                    <div class="h3">Enrollment Status</div>
+                    <div class="text-red-800 font-bold text-sm">Not Enrolled</div>
                 </div>
                 <div class="mt-8">
-                    <a href="" class="btn-blue">View Courses</a>
+                    <a href="{{route('enrollments.create')}}" class="btn-blue">Enroll Now</a>
                 </div>
-                @elseif(Auth::user()->enrollmentStatusFor(1)==2)
+                @elseif($user->enrollmentStatusFor(1)==2)
                 <div class="flex justify-between">
-                    <div class="h3">Registration Status</div>
-                    <div class="text-red-800 font-bold text-sm">Course Selected</div>
+                    <div class="h3">Enrollment Status</div>
+                    <div class="text-red-800 font-bold text-sm">Invoice Issued</div>
                 </div>
                 <div class="mt-8">
-                    <a href="" class="btn-blue">See Invoice</a>
+                    <a href="{{route('invoices.show',1)}}" class="btn-blue">See Invoice</a>
+                </div>
+                @elseif($user->enrollmentStatusFor(1)==3)
+                <div class="flex justify-between">
+                    <div class="h3">Enrollment Status</div>
+                    <div class="text-red-800 font-bold text-sm">Fee Verification</div>
+                </div>
+                <div class="mt-8">
+                    <a href="" class="btn-blue">Pay & Upload Proof</a>
                 </div>
                 @endif
 
@@ -112,7 +120,7 @@
         <!-- right side panel -->
         <div class="">
             <div class="p-6 bg-white">
-                <x-student.profile :user="Auth::user()"></x-student.profile>
+                <x-student.profile :user="$user"></x-student.profile>
             </div>
         </div>
     </div>

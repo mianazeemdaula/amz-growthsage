@@ -74,8 +74,15 @@ class User extends Authenticatable
         $status = 0;
         if ($this->profile) {
             $status = 1;
-            if ($this->enrollments()->in($course_id)->first()) {
+            $enrollment = $this->enrollments()->in($course_id)->first();
+            if ($enrollment) {
                 $status = 2;
+                if ($enrollment->feepaid) {
+                    $status = 3;
+                    if ($enrollment->fee_verified) {
+                        $status = 4;
+                    }
+                }
             }
         }
         // if ($this->enrollments()->in($course_id)->first()->notified) $status = 4;

@@ -11,6 +11,7 @@ use App\Models\User;
 use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\File;
 
 class EnrollmentController extends Controller
 {
@@ -38,6 +39,18 @@ class EnrollmentController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'user_id' => 'required',
+            'course_id' => 'required',
+        ]);
+
+        try {
+            Enrollment::create($request->all());
+            return redirect()->route('courses.show', 1)->with(['success' => 'Successfully enrolled']);
+        } catch (Exception $e) {
+            return redirect()->back()->withErrors($e->getMessage());
+            // something went wrong
+        }
     }
 
     /**
@@ -62,6 +75,46 @@ class EnrollmentController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $request->validate([
+            'image' => 'image|mimes:jpeg,png,jpg,gif,svg|max:5000',
+        ]);
+
+        $enrollment = Enrollment::find($id);
+
+        try {
+            $image_name = '';
+
+            //if user has changed image, replace existing image 
+            if ($request->hasFile('image')) {
+                $existing_image_url = public_path('images/payments/') . $enrollment->image;
+
+                //remove existing image
+                // if (file_exists($existing_image_url)) {
+                if (File::exists($existing_image_url)) {
+                    // unlink($existing_image_url);
+                    File::delete($existing_image_url);
+                }
+
+                //save uploaded image
+                $image_name = $enrollment->id . '.' . $request->image->extension();
+                $request->file('image')->move(public_path('images/payments/'), $image_name);
+            }
+
+            //update by raw input as it is
+            $enrollment->update($request->all());
+
+            //if image has been changed by user
+            //replace uploaded image name by its formatted name
+            if ($image_name != '')
+                $enrollment->image = $image_name;
+
+            $enrollment->save();
+
+            return redirect()->route('courses.show', $enrollment->course_id)->with('success', 'Successfully uploaded');
+        } catch (Exception $e) {
+            return redirect()->back()->withErrors($e->getMessage());
+            // something went wrong
+        }
     }
 
     /**

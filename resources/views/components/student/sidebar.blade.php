@@ -9,17 +9,17 @@
                 <i class="bi-grid"></i>
                 <a href="{{url('students')}}">Home</a>
             </li>
-            <li @if($page=='reg' ) class="active" @endif>
+            <!-- <li @if($page=='reg' ) class="active" @endif>
                 <i class="bi-award"></i>
                 <a href="{{url('enrollments')}}">Registration</a>
-            </li>
+            </li> -->
             <li @if($page=='courses' ) class="active" @endif>
                 <i class="bi-book"></i>
-                <a href="{{url('courses')}}">Your Courses</a>
+                <a href="{{route('courses.show',1)}}">My Courses</a>
             </li>
-            <li>
+            <li @if($page=='invoices' ) class="active" @endif>
                 <i class="bi-receipt"></i>
-                <a href="#">Invoices</a>
+                <a href="{{route('invoices.show',1)}}">Invoices</a>
             </li>
             <li>
                 <i class="bi-currency-dollar"></i>

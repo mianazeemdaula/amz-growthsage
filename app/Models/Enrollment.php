@@ -16,7 +16,8 @@ class Enrollment extends Model
         'cashier_id',
         'feemode_id',
         'fee_paid',
-        'notified',
+        'fee_verified',
+        'image',
     ];
 
     public function user(): BelongsTo
