@@ -48,16 +48,9 @@
 
         <div class="relative col-span-2">
             <div class="p-6 rounded-lg bg-white">
-                <div class="flex items-center justify-between">
-                    <div class="h2">Payment Options</div>
-                    <div class="flex justify-center items-center w-12 h-12 rounded-full bg-sky-100">
-                        <i class="bi bi-receipt text-sky-600"></i>
-                    </div>
-                </div>
-                <div class="divider my-4"></div>
-
+                <div class="h3 lg:col-span-2">Payments Options</div>
                 <p class="text-slate-600 leading-relaxed mt-2">
-                    Please use one of the following payment options. After payment you must have to upload soft copy proof of your payment. System may take maximum 24 hrs for payment confirmation. Once it is confirmed, you will have access to your course content.
+                    Please use one of the following payment options. After payment you must have to upload soft copy proof of your payment.
                 </p>
                 <div class="grid grid-cols-1 lg:grid-cols-2 rounded-lg border-slate-300 gap-4 mt-4">
 
@@ -76,10 +69,7 @@
                         <div class="mt-4 text-slate-500 text-sm">Account Title</div>
                         <div class="h3">Zahid saleem</div>
 
-
                     </div>
-
-
                     <div class="px-8 border-t lg:border-t-0 lg:border-l boder-dashed border-slate-300">
                         <div class="flex justify-center items-center h-24">
                             <img src="{{asset('/images/icon/jazzcash.png')}}" alt="" class="w-16">
@@ -87,11 +77,6 @@
                         <div class="flex justify-center mt-4">
                             <img src="{{asset('/images/icon/QR.png')}}" alt="" class="w-32">
                         </div>
-                    </div>
-
-                    <div class="divider lg:col-span-2"></div>
-                    <div class="h3 col-span-2 text-center">
-                        <div>Total Fee: &nbsp PKR 10,500/-</div>
                     </div>
                 </div>
                 <div class="divider my-6"></div>

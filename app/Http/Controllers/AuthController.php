@@ -18,8 +18,8 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($credentials)) {
-            // $user = User::where('email', $request->email)->first();
-            // Auth::login(Aut);
+            $user = User::where('email', $request->email)->first();
+            Auth::login($user);
             return redirect('/');
         } else {
             return redirect()->back()->withErrors(['auth' => 'User credentials incorrect !']);

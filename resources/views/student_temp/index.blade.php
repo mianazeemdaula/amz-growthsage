@@ -12,9 +12,9 @@
     <!--welcome  -->
     <div class="flex items-center py-6">
         <div class="flex-1">
-            <div class="h2">Welcome dear {{$user->name}}!</div>
+            <div class="h2">Welcome dear {{Auth::user()->name}}!</div>
             <div class="bread-crumb">
-                <div>Home</div>
+                <a href="{{url('students')}}" class="link">Home</a>
                 <div>/</div>
                 <div>Students</div>
             </div>
@@ -24,7 +24,7 @@
     </div>
 
     <!-- pallet boxes -->
-    <x-student.pallets :user='$user'></x-student.pallets>
+    <x-student.pallets :user='Auth::user()'></x-student.pallets>
     <!-- middle content panel starts-->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-y-8 md:gap-x-8 mt-8">
         <div class="relative col-span-2">
@@ -49,7 +49,7 @@
                             </div>
                             <div class="flex-col flex-1">
                                 <div class="text-slate-500 text-sm">Assignment</div>
-                                <div class="text-sm font-bold">0 Assignments</div>
+                                <div class="text-sm font-bold">2 Assignments</div>
                             </div>
                         </div>
                     </div>
@@ -65,7 +65,6 @@
             </div>
             @endif
 
-
             <!-- user has not taken any course, profile complete -->
             <!-- offer courses for registration  -->
             <div class="p-6 rounded-lg  bg-blue-100">
@@ -74,8 +73,6 @@
 
             <div class="p-6 rounded-lg  bg-white mt-6">
                 <x-student.course></x-student.course>
-                <div class="my-6 border-t border-slate-200 border-dashed"></div>
-                <x-student.course_status :status="$user->enrollmentStatusFor(1)"></x-student.course_status>
             </div>
             @else
             <!-- profile incomplete -->

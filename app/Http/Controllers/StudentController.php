@@ -22,6 +22,7 @@ class StudentController extends Controller
     {
         //
         $user = Auth::user();
+        // echo Auth::user()->name;
         return view('student.index', compact('user'));
     }
 

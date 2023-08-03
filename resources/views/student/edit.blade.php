@@ -30,8 +30,8 @@
         <div class="relative col-span-2">
             <!-- profile incomplete -->
             <div class="p-6 rounded-lg  bg-white">
-                <div class="h2">Complete Your Profile</div>
-                <div class="text-slate-500 mt-1">Please provide following information</div>
+                <div class="h2">Edit Profile</div>
+                <div class="text-slate-500 mt-1">Following information is editable</div>
 
                 @if ($errors->any())
                 <div class="alert-danger mt-8">
@@ -62,15 +62,15 @@
                 </div>
                 @endif
 
-                <form action="{{route('students.store')}}" method='post' class="flex flex-col w-full mt-4" enctype="multipart/form-data" onsubmit="return validate(event)">
+                <form action="{{route('students.update',$profile)}}" method='post' class="flex flex-col w-full mt-4" enctype="multipart/form-data" onsubmit="return validate(event)">
                     @csrf
-                    <input type="hidden" name='user_id' value="{{$user->id}}">
+                    @method('PATCH')
                     <div class="grid grid-cols-1 lg:grid-cols-2 mt-3 text-slate-600 gap-4">
                         <div>
                             <label for="">Language*</label>
                             <select name="language_id" id="" class="w-full custom-input">
                                 @foreach($languages as $language)
-                                <option value="{{$language->id}}">{{$language->name}}</option>
+                                <option value="{{$language->id}}" @selected($profile->language_id==$language->id)>{{$language->name}}</option>
                                 @endforeach
                             </select>
                         </div>
@@ -78,34 +78,34 @@
                             <label for="">Country*</label>
                             <select name="country_id" id="" class="w-full custom-input">
                                 @foreach($countries as $country)
-                                <option value="{{$country->id}}">{{$country->name}}</option>
+                                <option value="{{$country->id}}" @selected($profile->country_id==$country->id)>{{$country->name}}</option>
                                 @endforeach
                             </select>
                         </div>
                         <div>
                             <label for="">Province</label>
-                            <input type="text" name='province' class='custom-input' value="Punjab">
+                            <input type="text" name='province' class='custom-input' value="{{$profile->province}}">
                         </div>
                         <div>
                             <label for="">City*</label>
-                            <input type="text" name='city' class='custom-input'>
+                            <input type="text" name='city' class='custom-input' value="{{$profile->city}}">
                         </div>
 
                         <div class="lg:col-span-2">
                             <label for="">Address</label>
-                            <input type="text" name='address' class='custom-input'>
+                            <input type="text" name='address' class='custom-input' value="{{$profile->address}}">
                         </div>
                         <div>
                             <label for="">Phone*</label>
-                            <input type="text" name='phone' class='custom-input'>
+                            <input type="text" name='phone' class='custom-input' value="{{$profile->phone}}">
                         </div>
                         <div>
                             <label for="">Experience (if any)</label>
-                            <input type="text" name='experience' class='custom-input'>
+                            <input type="text" name='experience' class='custom-input' value="{{$profile->experience}}">
                         </div>
 
                         <div class="mt-4">
-                            <button type="submit" class="btn-blue">Submit Now</button>
+                            <button type="submit" class="btn-blue">Update Now</button>
                         </div>
                     </div>
 

@@ -14,7 +14,7 @@
         <div class="flex-1">
             <div class="h2">Welcome dear {{Auth::user()->name}}!</div>
             <div class="bread-crumb">
-                <div>Home</div>
+                <a href="{{url('students')}}" class="link">Home</a>
                 <div>/</div>
                 <div>Students</div>
             </div>
@@ -45,6 +45,7 @@
                             @endforeach
                         </ul>
                     </div>
+
                 </div>
                 @endif
 

@@ -18,7 +18,9 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     if (Auth::check()) {
+
         if (Auth::user()->hasRole('student'))
+
             return redirect('students');
         if (Auth::user()->hasRole('admin'))
             return redirect('admin');
@@ -57,9 +59,9 @@ Route::group(['middleware' => ['role:student']], function () {
 
 
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['role:admin']], function() {
-    Route::get('/', [AdminController::class,'index']);
-    Route::resource('students', App\Http\Controllers\Admin\StudentController::class);
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['role:admin']], function () {
+    Route::get('/', [AdminController::class, 'index']);
+    // Route::resource('students', App\Http\Controllers\Admin\StudentController::class);
     Route::resource('invoices', App\Http\Controllers\Admin\InvoiceController::class);
     Route::resource('accounts', App\Http\Controllers\Admin\AccountController::class);
     Route::resource('courses', App\Http\Controllers\Admin\CourseController::class);
