@@ -39,7 +39,7 @@
                 <div class="p-6 bg-white grid grid-cols-1 md:grid-cols-2">
                     <div class="flex flex-col justify-center items-center md:border-r-2 border-red-200">
                         <img class="w-20 h-20 object-cover rounded-full bg-blue-400"
-                            @if ($$model->profile) src="{{ asset('images/' . $model->profile->image) }}" @endif
+                            @if ($model->profile) src="{{ asset('images/' . $model->profile->image) }}" @endif
                             alt="not found" srcset="">
                         <div class="h3 mt-4">{{ $model->name }}</div>
                         <div>{{ $model->email }}</div>
