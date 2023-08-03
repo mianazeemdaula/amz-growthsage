@@ -22,8 +22,6 @@
         <div class="text-slate-500">{{ today()->format('d/m/Y') }}</div>
     </div>
 
-    <!-- pallet boxes -->
-    <x-admin.pallets></x-admin.pallets>
     <!-- middle content panel starts-->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-y-8 md:gap-x-8 mt-8">
         <div class="relative col-span-3">

@@ -23,8 +23,7 @@
         </div>
         <div class="text-slate-500">{{ today()->format('d/m/Y') }}</div>
     </div>
-    <!-- pallet boxes -->
-    <x-admin.pallets></x-admin.pallets>
+
     <!-- middle content panel starts-->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-y-8 md:gap-x-8 mt-8">
         <div class="relative col-span-2">
@@ -90,14 +89,7 @@
                                     {{ \App\Models\User::where('referral_id', $model->id)->count() }}
                                 </div>
                             </div>
-                            <div class="flex justify-between">
-                                <div class="text-gray-600 text-sm">Country</div>
-                                <div class="font-bold text-sm">{{ $model->profile->country->name }}</div>
-                            </div>
-                            <div class="flex justify-between">
-                                <div class="text-gray-600 text-sm">Country</div>
-                                <div class="font-bold text-sm">{{ $model->profile->country->name }}</div>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -106,7 +98,7 @@
         </div>
         <div>
             <div class="p-6 bg-white">
-                <x-student.profile :user="$model" mode='full'></x-student.profile>
+                <x-admin.student_profile :user="$model"></x-admin.student_profile>
                 <!-- <x-student.upcoming></x-student.upcoming> -->
             </div>
         </div>
