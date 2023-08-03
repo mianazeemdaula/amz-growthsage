@@ -49,7 +49,7 @@
                 </ul>
             </div>
             <div>
-                <img src="{{asset('images/all-img/faq.png')}}" alt="" class=" mx-auto">
+                <img src="{{asset('images/all-img/welcome/faq.jpg')}}" alt="" class=" mx-auto">
             </div>
         </div>
     </div>
