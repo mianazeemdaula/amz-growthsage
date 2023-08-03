@@ -3,35 +3,36 @@
         <div class="container">
             <div class=" flex items-center justify-between">
                 <a href="index.html" class="brand-logo flex-none lg:mr-10 md:w-auto max-w-[200px] ">
-                    <img src="{{asset('/images/logo/original.png')}}" alt="" w='200'>
+                    <img src="{{ asset('/images/logo/original.png') }}" alt="" w='200'>
                 </a>
 
                 <div class="flex items-center flex-1">
                     <div class="flex-1 main-menu relative mr-[74px]">
                         <ul class="menu-active-classes">
                             <li>
-                                <a href="{{url('/')}}">Home</a>
+                                <a href="{{ url('/') }}">Home</a>
                             </li>
                             <li>
-                                <a href="{{url('web/courses')}}">Courses</a>
+                                <a href="{{ url('web/courses') }}">Courses</a>
                             </li>
                             <li>
-                                <a href="{{url('web/blogs')}}">Blogs</a>
+                                <a href="{{ url('web/blogs') }}">Blogs</a>
                             </li>
                             <li>
-                                <a href="{{url('web/about')}}">About</a>
+                                <a href="{{ url('web/about') }}">About</a>
                             </li>
                             <li>
-                                <a href="{{url('web/contact')}}">Contact</a>
+                                <a href="{{ url('web/contact') }}">Contact</a>
                             </li>
                         </ul>
                     </div>
                     <div class="flex-none flex space-x-[18px]">
                         <div class=" hidden lg:block">
-                            <a href="{{url('login')}}" class="btn btn-primary py-[15px] px-8">Start Free Trial</a>
+                            <a href="{{ url('web/login') }}" class="btn btn-primary py-[15px] px-8">Start Free Trial</a>
                         </div>
                         <div class="block lg:hidden">
-                            <button type="button" class=" text-3xl md:w-[56px] h-10 w-10 md:h-[56px] rounded bg-[#F8F8F8] flex flex-col items-center justify-center
+                            <button type="button"
+                                class=" text-3xl md:w-[56px] h-10 w-10 md:h-[56px] rounded bg-[#F8F8F8] flex flex-col items-center justify-center
                                           menu-click">
                                 <iconify-icon icon="cil:hamburger-menu" rotate="180deg"></iconify-icon>
                             </button>
@@ -43,11 +44,12 @@
     </div>
 
     <!-- mobile menu -->
-    <div class="openmobile-menu fixed top-0 h-screen pt-10 pb-6 bg-white shadow-box2 w-[320px] overflow-y-auto flex flex-col
+    <div
+        class="openmobile-menu fixed top-0 h-screen pt-10 pb-6 bg-white shadow-box2 w-[320px] overflow-y-auto flex flex-col
           z-[999]">
         <div class="flex justify-between px-6 flex-none">
             <a href="index.html" class="brand-logo flex-none mr-10 ">
-                <!-- <img src="{{ asset('images/logo/logo.svg') }}" alt=""> 
+                <!-- <img src="{{ asset('images/logo/logo.svg') }}" alt="">
                 -->
                 Logo
             </a>
@@ -58,22 +60,22 @@
         <div class="mobile-menu mt-6 flex-1 ">
             <ul class="menu-active-classes">
                 <li>
-                    <a href="{{url('/')}}">Home</a>
+                    <a href="{{ url('/') }}">Home</a>
                 </li>
                 <li>
-                    <a href="{{url('courses')}}">Courses</a>
+                    <a href="{{ url('courses') }}">Courses</a>
                 </li>
                 <li>
-                    <a href="{{url('blogs')}}">Blogs</a>
+                    <a href="{{ url('blogs') }}">Blogs</a>
                 </li>
                 <li>
-                    <a href="{{url('about')}}">About</a>
+                    <a href="{{ url('about') }}">About</a>
                 </li>
                 <li>
-                    <a href="{{url('contact')}}">Contact</a>
+                    <a href="{{ url('contact') }}">Contact</a>
                 </li>
                 <li>
-                    <a href="{{url('login')}}">Login Me</a>
+                    <a href="{{ url('login') }}">Login Me</a>
                 </li>
             </ul>
         </div>
