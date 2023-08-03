@@ -2,9 +2,8 @@
     <div class="main-header py-6">
         <div class="container">
             <div class=" flex items-center justify-between">
-                <a href="index.html" class="brand-logo flex-none lg:mr-10 md:w-auto max-w-[120px] ">
-                    <!-- <img src="{{ asset('images/logo/logo.svg') }}" alt=""> -->
-                    <h4 class="text-secondary">LOGO</h4>
+                <a href="index.html" class="brand-logo flex-none lg:mr-10 md:w-auto max-w-[200px] ">
+                    <img src="{{asset('/images/logo/original.png')}}" alt="" w='200'>
                 </a>
 
                 <div class="flex items-center flex-1">
