@@ -71,6 +71,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['role:admi
     Route::resource('faq-cats', App\Http\Controllers\Admin\FaqCategoryController::class);
     Route::resource('faq-cats.faqs', App\Http\Controllers\Admin\FAQController::class);
     Route::resource('queries', App\Http\Controllers\Admin\FAQController::class);
+
+    Route::view('change/pw', 'admin.change_password');
+    Route::post('change/pw', [AdminController::class, 'changePassword'])->name('change_password');
 });
 // Route::get('home', function ($id) {
 // });

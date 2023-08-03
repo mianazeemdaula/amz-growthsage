@@ -12,6 +12,7 @@ use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
 
 class StudentController extends Controller
 {
@@ -95,5 +96,31 @@ class StudentController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+    public function changePassword(Request $request)
+    {
+        $user = Auth::user();
+        //signup  process
+        $request->validate([
+            'current' => 'required',
+            'new' => 'required',
+        ]);
+
+        //echo 'current:' . $request->current . "new" . $request->new . "existing" . $user->password;
+        try {
+
+            if (Hash::check($request->current, $user->password)) {
+                $user->password = Hash::make($request->new);
+                $user->save();
+                return redirect()->back()->with('success', 'Password successfuly changed');
+            } else {
+                //password not found
+                return redirect()->back()->withErrors("Password incorrect");;
+            }
+        } catch (Exception $e) {
+            return redirect()->back()
+                ->withErrors($e->getMessage());
+            // something went wrong
+        }
     }
 }

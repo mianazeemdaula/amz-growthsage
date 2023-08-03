@@ -12,7 +12,7 @@
         <div class="divider mt-4"></div>
         <div class="flex text-sm mt-4">
             <div class="w-8"><i class="bi-key"></i></div>
-            <a href="" class="link">Change Password</a>
+            <a href="{{route('admin.change_password')}}" class="link">Change Password</a>
         </div>
     </div>
 </div>
