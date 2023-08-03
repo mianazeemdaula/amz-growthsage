@@ -10,7 +10,7 @@
         <div class="grid grid-cols-1 md:grid-cols-2 mt-16">
             <a class=" bg-white shadow-box2 rounded-[8px] transition duration-100 hover:shadow-sm" href="#">
                 <div class="course-thumb h-[360px] rounded-l-[8px]  relative">
-                    <img src="{{ asset('images/all-img/c1.png') }}" alt="" class=" w-full h-full object-cover rounded-l-[8px]">
+                    <img src="{{ asset('images/all-img/welcome/about2.jpg') }}" alt="" class=" w-full h-full object-cover rounded-l-[8px]">
                     <span class="bg-secondary py-1 px-3 text-lg font-semibold rounded text-white absolute left-6 top-6">Amazon Product Hunting</span>
                 </div>
             </a>

@@ -2,7 +2,7 @@
     <div class="container">
         <div class="grid lg:grid-cols-2 grid-cols-1 gap-10">
             <div>
-                <img src="{{ asset('images/all-img/about1.png') }}" alt="" class=" mx-auto" />
+                <img src="{{ asset('images/all-img/welcome/about1.jpg') }}" alt="" class=" mx-auto" />
             </div>
             <div>
                 <div class="mini-title">About Growth-Sage</div>

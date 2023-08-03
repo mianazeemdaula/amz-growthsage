@@ -67,7 +67,7 @@
                 </div>
                 @endif
 
-                <form action="{{route('student.change_password')}}" method="post" class="mt-8 md:px-24" onsubmit="return validate(event)">
+                <form action="{{route('admin.change_password')}}" method="post" class="mt-8 md:px-24" onsubmit="return validate(event)">
                     @csrf
                     <div class="grid grid-cols-1 gap-4">
                         <div>
