@@ -47,7 +47,6 @@ class UserController extends Controller
                 // set this id of the user to the student referral_id
                 $request->merge(
                     [
-
                         'referral_id' => $referral->id,
                     ]
                 );

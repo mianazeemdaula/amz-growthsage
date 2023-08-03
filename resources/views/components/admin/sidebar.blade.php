@@ -8,40 +8,32 @@
         <ul class="flex flex-col items-start space-y-4">
             <li @if ($page == 'home') class="active" @endif>
                 <i class="bi-grid"></i>
-                <a href="{{ url('students') }}">Home</a>
+                <a href="{{ url('admin/') }}">Home</a>
             </li>
-            <li @if ($page == 'reg') class="active" @endif>
-                <i class="bi-award"></i>
-                <a href="{{ url('enrollments') }}">Registration</a>
+            <li @if ($page == 'students') class="active" @endif>
+                <i class="bi-book"></i>
+                <a href="{{ route('admin.students.index') }}">Students</a>
+            </li>
+            <li @if ($page == 'invoices') class="active" @endif>
+                <i class="bi-receipt"></i>
+                <a href="{{ route('admin.invoices.index') }}">Invoices</a>
+            </li>
+            <li @if ($page == 'accounts') class="active" @endif>
+                <i class="bi-currency-dollar"></i>
+                <a href="{{ route('admin.accounts.index') }}">Account</a>
             </li>
             <li @if ($page == 'courses') class="active" @endif>
-                <i class="bi-book"></i>
-                <a href="{{ url('courses') }}">Your Courses</a>
+                <i class="bi-graph-up"></i>
+                <a href="{{ route('admin.courses.index') }}">Courses</a>
             </li>
-            <li>
-                <i class="bi-receipt"></i>
-                <a href="#">Invoices</a>
-            </li>
-            <li>
-                <i class="bi-currency-dollar"></i>
-                <a href="#">Accounts</a>
-            </li>
-            <li>
-                <i class="bi-calendar2"></i>
-                <a href="#">Schedule</a>
+            <li @if ($page == 'teamleaders') class="active" @endif>
+                <i class="bi-diagram-2"></i>
+                <a href="{{ route('admin.teamleaders.index') }}">Team Leaders</a>
             </li>
 
-            <li>
-                <i class="bi-card-checklist"></i>
-                <a href="#">Tasks</a>
-            </li>
-            <li>
-                <i class="bi-graph-up"></i>
-                <a href="#">Scorage</a>
-            </li>
-            <li>
+            <li @if ($page == 'faqs') class="active" @endif>
                 <i class="bi-diagram-2"></i>
-                <a href="#">Team</a>
+                <a href="{{ route('admin.faq-cats.index') }}">FAQs</a>
             </li>
 
             <li>

@@ -12,6 +12,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CourseEnrollmentController;
 use App\Http\Controllers\EnrollmentController;
 use App\Http\Controllers\InvoiceController;
+use App\Http\Controllers\Admin\AdminController;
 use Illuminate\Support\Facades\Route;
 
 
@@ -19,6 +20,8 @@ Route::get('/', function () {
     if (Auth::check()) {
         if (Auth::user()->hasRole('student'))
             return redirect('students');
+        if (Auth::user()->hasRole('admin'))
+            return redirect('admin');
     } else {
         return view('index');
     }
@@ -36,7 +39,7 @@ Route::get('signout', [AuthController::class, 'signout'])->name('signout');
 
 Route::resource('subscribers', SubscriberController::class)->only('store');
 
-Route::resource('registration', RegistrationController::class);
+// Route::resource('registration', RegistrationController::class);
 
 Route::resource('queries', QueryController::class);
 Route::resource('users', UserController::class);
@@ -52,5 +55,18 @@ Route::group(['middleware' => ['role:student']], function () {
     Route::get('invoice/proof/{enrollment_id}', [InvoiceController::class, 'uploadProof']);
 });
 
+
+
+Route::group(['prefix' => 'admin', 'as' => 'admin.','middleware' => ['role:admin']], function() {
+    Route::get('/', [AdminController::class,'index']);
+    Route::resource('students', App\Http\Controllers\Admin\StudentController::class);
+    Route::resource('invoices', App\Http\Controllers\Admin\InvoiceController::class);
+    Route::resource('accounts', App\Http\Controllers\Admin\AccountController::class);
+    Route::resource('courses', App\Http\Controllers\Admin\CourseController::class);
+    Route::resource('teamleaders', App\Http\Controllers\Admin\TeamLeaderController::class);
+    Route::resource('faq-cats', App\Http\Controllers\Admin\FaqCategoryController::class);
+    Route::resource('faq-cats.faqs', App\Http\Controllers\Admin\FAQController::class);
+    Route::resource('queries', App\Http\Controllers\Admin\FAQController::class);
+});
 // Route::get('home', function ($id) {
 // });

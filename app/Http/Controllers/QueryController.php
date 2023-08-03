@@ -39,7 +39,7 @@ class QueryController extends Controller
         try {
 
             Query::create($request->all());
-            return redirect()->back()->with(['success' => 'We have recieved your query. Soon our representative will respond o your query']);
+            return redirect()->back()->with(['success' => 'We have recieved your query. Soon our representative will respond on your query']);
         } catch (Exception $e) {
             return redirect()->back()->withErrors($e->getMessage());
             // something went wrong

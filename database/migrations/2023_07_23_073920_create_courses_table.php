@@ -18,6 +18,7 @@ return new class extends Migration
             $table->text('description');
             $table->tinyInteger('lectures_count')->default(36);
             $table->unsignedInteger('fee')->default(100);
+            $table->unsignedInteger('discount_fee')->default(100);
             $table->unsignedInteger('teamleader_reward')->default(100);
             $table->unsignedInteger('referral_reward')->default(100);
             $table->boolean('active')->default(true);

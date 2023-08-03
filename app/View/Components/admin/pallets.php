@@ -6,16 +6,13 @@ use Closure;
 use Illuminate\Contracts\View\View;
 use Illuminate\View\Component;
 
-class sidebar extends Component
+class pallets extends Component
 {
     /**
      * Create a new component instance.
      */
-    public $page;
-    public function __construct($page)
+    public function __construct()
     {
-        //
-        $this->page = $page;
     }
 
     /**
@@ -23,6 +20,6 @@ class sidebar extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.admin.sidebar');
+        return view('components.admin.pallets');
     }
 }
