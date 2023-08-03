@@ -20,7 +20,7 @@
     <a href="" class="pallet-box">
         <div class="flex-1 ">
             <div class="title">Task Finished</div>
-            <div class="h2">5/10</div>
+            <div class="h2">?/?</div>
         </div>
         <div class="ico bg-teal-100">
             <i class="bi bi-card-checklist text-teal-600"></i>
@@ -29,7 +29,7 @@
     <a href="" class="pallet-box">
         <div class="flex-1">
             <div class="title">Scorage</div>
-            <div class="h2">60%</div>
+            <div class="h2">?%</div>
         </div>
         <div class="ico bg-sky-100">
             <i class="bi bi-graph-up text-sky-600"></i>

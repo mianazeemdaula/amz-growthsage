@@ -50,6 +50,8 @@ Route::group(['middleware' => ['role:student']], function () {
     Route::resource('courses', CourseController::class);
     Route::resource('invoices', InvoiceController::class);
     Route::get('invoice/proof/{enrollment_id}', [InvoiceController::class, 'uploadProof']);
+    Route::view('student/change/pw', 'student.change_password');
+    Route::post('student/change/pw', [StudentController::class, 'changePassword'])->name('student.change_password');
 });
 
 // Route::get('home', function ($id) {

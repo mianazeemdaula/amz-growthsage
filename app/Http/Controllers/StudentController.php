@@ -4,14 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Country;
-use App\Models\Enrollment;
 use App\Models\Language;
 use App\Models\Student;
-use App\Models\User;
-use Exception;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Hash;
+use Exception;
 
 class StudentController extends Controller
 {
@@ -78,6 +76,11 @@ class StudentController extends Controller
     public function edit(string $id)
     {
         //
+        $user = Auth::user();
+        $profile = $user->profile;
+        $languages = Language::all();
+        $countries = Country::all();
+        return view('student.edit', compact('user', 'profile', 'languages', 'countries'));
     }
 
     /**
@@ -86,6 +89,24 @@ class StudentController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $request->validate([
+            'language_id' => 'required',
+            'country_id' => 'required',
+            'phone' => 'required',
+            'city' => 'required',
+
+        ]);
+
+        // in case, referral code missed, by default referal_id will be null
+
+        try {
+            $student = Student::find($id);
+            $student->update($request->all());
+            return redirect('students')->with(['success' => 'Profile updted successfuly']);
+        } catch (Exception $e) {
+            return redirect()->back()->withErrors($e->getMessage());
+            // something went wrong
+        }
     }
 
     /**
@@ -94,5 +115,31 @@ class StudentController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+    public function changePassword(Request $request)
+    {
+        $user = Auth::user();
+        //signup  process
+        $request->validate([
+            'current' => 'required',
+            'new' => 'required',
+        ]);
+
+        //echo 'current:' . $request->current . "new" . $request->new . "existing" . $user->password;
+        try {
+
+            if (Hash::check($request->current, $user->password)) {
+                $user->password = Hash::make($request->new);
+                $user->save();
+                return redirect()->back()->with('success', 'Password successfuly changed');
+            } else {
+                //password not found
+                return redirect()->back()->withErrors("Password incorrect");;
+            }
+        } catch (Exception $e) {
+            return redirect()->back()
+                ->withErrors($e->getMessage());
+            // something went wrong
+        }
     }
 }

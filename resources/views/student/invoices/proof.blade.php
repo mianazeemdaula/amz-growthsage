@@ -25,33 +25,36 @@
         <div class="text-slate-500">{{today()->format('d/m/Y')}}</div>
     </div>
 
-    @if ($errors->any())
-    <div class="alert-danger mt-8">
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
-
-    @if(session('success'))
-    <div class="flex alert-success items-center mt-8">
-        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5 mr-4">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
-        </svg>
-
-        {{session('success')}}
-    </div>
-    @endif
 
     <!-- registratin form -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-y-8 md:gap-x-8">
 
         <div class="relative col-span-2">
             <div class="p-6 bg-white">
-                <div class="h3">Please upload fee payment proof</div>
-                <p class="mt-2 leading-relaxed">Images in .png, .jpg and .jpeg formats will be accepted with maximum size upto 5MB</p>
+                <div class="flex items-center justify-between">
+                    <div class="h3">Payment Proof</div>
+                    <div class="flex justify-center items-center w-12 h-12 rounded-full bg-sky-100">
+                        <i class="bi bi-receipt text-sky-600"></i>
+                    </div>
+                </div>
+                <div class="divider my-4"></div>
+                <p class="mt-2 leading-relaxed">Please upload fee payment proof. Images in .png, .jpg and .jpeg formats will be accepted with maximum size upto 5MB</p>
+
+                @if ($errors->any())
+                <div class="alert-danger mt-8">
+                    <div class="w-10">
+                        <i class="bi-emoji-frown text-[24px]"></i>
+                    </div>
+                    <div>
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                </div>
+                @endif
+
                 <form action="{{route('enrollments.update',$enrollment)}}" method='post' class="flex flex-col w-full mt-4" enctype="multipart/form-data" onsubmit="return validate(event)">
                     @csrf
                     @method('PATCH')

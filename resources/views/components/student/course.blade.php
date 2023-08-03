@@ -36,7 +36,7 @@
                 </div>
                 <div class="flex-col flex-1">
                     <div class="text-slate-500 text-sm">Fee</div>
-                    <div class="text-sm font-bold">PKR 10,000/-</div>
+                    <div class="text-sm font-bold">PKR 10,500/-</div>
                 </div>
             </div>
             <div class="flex">
@@ -49,16 +49,5 @@
                 </div>
             </div>
         </div>
-    </div>
-    <!-- registration status -->
-
-    <div class="my-6 border-t border-slate-200 border-dashed"></div>
-
-    <div class="flex justify-between">
-        <div class="h3">Registration Status</div>
-        <div class="text-red-800 font-bold text-sm">Not Registered</div>
-    </div>
-    <div class="mt-8">
-        <a href="{{route('enrollments.create')}}" class="btn-blue">Register Now</a>
     </div>
 </div>

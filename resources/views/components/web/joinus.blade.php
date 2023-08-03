@@ -20,7 +20,7 @@
                 <div class="leading-relaxed">
                     Upon completion of this program, you will be well-versed with the tools, techniques, and strategies to identify profitable products, understand market trends, and make informed decisions to maximize your earnings.
                 </div>
-                <div class="text-secondary font-bold text-2xl my-3">Rs.10,000</div>
+                <div class="text-secondary font-bold text-2xl my-3">PKR 10,500</div>
                 <div class="flex flex-col space-y-4">
                     <span class=" flex items-center space-x-2">
                         <img src="{{ asset('images/svg/file.svg') }}" alt="">

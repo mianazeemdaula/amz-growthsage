@@ -29,8 +29,7 @@ class EnrollmentController extends Controller
     public function create()
     {
         //
-        $user = Auth::user();
-        return view('student.courses.enroll', compact('user'));
+
     }
 
     /**
@@ -99,9 +98,6 @@ class EnrollmentController extends Controller
                 $image_name = $enrollment->id . '.' . $request->image->extension();
                 $request->file('image')->move(public_path('images/payments/'), $image_name);
             }
-
-            //update by raw input as it is
-            $enrollment->update($request->all());
 
             //if image has been changed by user
             //replace uploaded image name by its formatted name

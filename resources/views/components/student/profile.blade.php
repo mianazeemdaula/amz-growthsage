@@ -1,4 +1,7 @@
-<div>
+<div class="relative">
+    <div class="absolute -top-2 -right-2">
+        <a href="{{route('students.edit',$user->profile->id)}}"><i class="bi-pencil-square text-green-600 text-[14px]"></i></a>
+    </div>
     <div class="h3">Profile</div>
     <div class="flex flex-col">
         <div class="flex items-center mt-4">
@@ -92,7 +95,7 @@
         <div class="divider mt-4"></div>
         <div class="flex text-sm mt-4">
             <div class="w-8"><i class="bi-key"></i></div>
-            <a href="" class="link">Change Password</a>
+            <a href="{{url('student/change/pw')}}" class="link">Change Password</a>
         </div>
     </div>
 </div>
