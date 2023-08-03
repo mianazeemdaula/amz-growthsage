@@ -55,13 +55,15 @@ Route::group(['middleware' => ['role:student']], function () {
     Route::resource('courses', CourseController::class);
     Route::resource('invoices', InvoiceController::class);
     Route::get('invoice/proof/{enrollment_id}', [InvoiceController::class, 'uploadProof']);
+    Route::view('student/change/pw', 'student.change_password');
+    Route::post('student/change/pw', 'student.change_password')->route('student.change_password');
 });
 
 
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => ['role:admin']], function () {
     Route::get('/', [AdminController::class, 'index']);
-    // Route::resource('students', App\Http\Controllers\Admin\StudentController::class);
+    Route::resource('students', App\Http\Controllers\Admin\StudentController::class);
     Route::resource('invoices', App\Http\Controllers\Admin\InvoiceController::class);
     Route::resource('accounts', App\Http\Controllers\Admin\AccountController::class);
     Route::resource('courses', App\Http\Controllers\Admin\CourseController::class);

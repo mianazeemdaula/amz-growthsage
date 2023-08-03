@@ -17,7 +17,7 @@
                 <i class="bi-receipt"></i>
                 <a href="{{route('invoices.show',1)}}">Invoices</a>
             </li>
-            <li>
+            <!-- <li>
                 <i class="bi-currency-dollar"></i>
                 <a href="#">Accounts</a>
             </li>
@@ -33,11 +33,13 @@
             <li>
                 <i class="bi-graph-up"></i>
                 <a href="#">Scorage</a>
-            </li>
+            </li> -->
+            @role('teamleader')
             <li>
                 <i class="bi-diagram-2"></i>
                 <a href="#">Team</a>
             </li>
+            @endrole
 
             <li>
                 <i class="bi-power"></i>

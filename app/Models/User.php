@@ -71,20 +71,41 @@ class User extends Authenticatable
     }
     public function enrollmentStatusFor($course_id)
     {
+
+
         $status = 0;
         if ($this->profile) {
+            //profile complete
             $status = 1;
             $enrollment = $this->enrollments()->in($course_id)->first();
             if ($enrollment) {
+                //enrolled
                 $status = 2;
-                if ($enrollment->feepaid) {
+                if ($enrollment->image) {
+                    //image uploaded
                     $status = 3;
-                    if ($enrollment->fee_verified) {
+                    if ($enrollment->fee_paid) {
+                        //has been verified
                         $status = 4;
                     }
                 }
             }
         }
+
+        // $status = 0;
+        // if ($this->profile) {
+        //     $status = 1;
+        //     $enrollment = $this->enrollments()->in($course_id)->first();
+        //     if ($enrollment) {
+        //         $status = 2;
+        //         if ($enrollment->feepaid) {
+        //             $status = 3;
+        //             if ($enrollment->fee_verified) {
+        //                 $status = 4;
+        //             }
+        //         }
+        //     }
+        // }
         // if ($this->enrollments()->in($course_id)->first()->notified) $status = 4;
         // if ($this->enrollments()->in($course_id)->first()->fee_paid) $status = 3;
         // else
