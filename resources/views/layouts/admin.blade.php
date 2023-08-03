@@ -22,7 +22,9 @@
 
 <body>
 
-    @yield('header')
+
+    <x-admin.header></x-admin.header>
+
     @yield('sidebar')
     <div class="responsive-body">
         @yield('body')

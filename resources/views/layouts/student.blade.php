@@ -21,8 +21,7 @@
 </head>
 
 <body>
-
-    @yield('header')
+    <x-student.header></x-student.header>
     @yield('sidebar')
     <div class="responsive-body">
         @yield('body')
