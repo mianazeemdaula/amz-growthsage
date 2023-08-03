@@ -45,7 +45,7 @@
         </div>
 
         <div class="text-center lg:pt-16 pt-10">
-            <a href="#" class=" btn btn-primary">Register Now</a>
+            <a href="{{ url('web/login') }}" class=" btn btn-primary">Register Now</a>
         </div>
     </div>
 </div>
