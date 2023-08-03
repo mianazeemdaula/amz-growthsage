@@ -8,29 +8,34 @@
                         Logo
                     </a>
                     <p>
-                        We're a group of experienced professionals with a common goal: to help people learn the useful skill of Amazon product hunting.
+                        We're a group of experienced professionals with a common goal: to help people learn the useful
+                        skill of Amazon product hunting.
                     </p>
                     <ul class="flex space-x-4 pt-8">
                         <li>
-                            <a href="#" class="flex h-12 w-12 flex-col items-center justify-center rounded bg-white bg-opacity-[0.08] text-2xl text-white
+                            <a href="#"
+                                class="flex h-12 w-12 flex-col items-center justify-center rounded bg-white bg-opacity-[0.08] text-2xl text-white
                     transition hover:bg-primary hover:text-white">
                                 <iconify-icon icon="bxl:facebook"></iconify-icon>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="flex h-12 w-12 flex-col items-center justify-center rounded bg-white bg-opacity-[0.08] text-2xl text-white
+                            <a href="#"
+                                class="flex h-12 w-12 flex-col items-center justify-center rounded bg-white bg-opacity-[0.08] text-2xl text-white
                     transition hover:bg-primary hover:text-white">
                                 <iconify-icon icon="bxl:twitter"></iconify-icon>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="flex h-12 w-12 flex-col items-center justify-center rounded bg-white bg-opacity-[0.08] text-2xl text-white
+                            <a href="#"
+                                class="flex h-12 w-12 flex-col items-center justify-center rounded bg-white bg-opacity-[0.08] text-2xl text-white
                     transition hover:bg-primary hover:text-white">
                                 <iconify-icon icon="bxl:linkedin"></iconify-icon>
                             </a>
                         </li>
                         <li>
-                            <a href="#" class="flex h-12 w-12 flex-col items-center justify-center rounded bg-white bg-opacity-[0.08] text-2xl text-white
+                            <a href="#"
+                                class="flex h-12 w-12 flex-col items-center justify-center rounded bg-white bg-opacity-[0.08] text-2xl text-white
                     transition hover:bg-primary hover:text-white">
                                 <iconify-icon icon="bxl:instagram"></iconify-icon>
                             </a>
@@ -44,19 +49,19 @@
                         <h4 class="mb-8 text-2xl font-bold text-white">Links</h4>
                         <ul class="list-item space-y-5">
                             <li>
-                                <a href="{{url('/')}}">Home</a>
+                                <a href="{{ url('/') }}">Home</a>
                             </li>
                             <li>
-                                <a href="{{url('courses')}}">Courses</a>
+                                <a href="{{ url('web/courses') }}">Courses</a>
                             </li>
                             <li>
-                                <a href="{{url('blogs')}}">Blogs</a>
+                                <a href="{{ url('web/blogs') }}">Blogs</a>
                             </li>
                             <li>
-                                <a href="{{url('about')}}">About</a>
+                                <a href="{{ url('web/about') }}">About</a>
                             </li>
                             <li>
-                                <a href="{{url('contact')}}">Contact</a>
+                                <a href="{{ url('web/contact') }}">Contact</a>
                             </li>
                         </ul>
                     </div>
@@ -76,7 +81,8 @@
                         </span>
                     </div>
                     <div class="flex-1">
-                        <input type="text" id='email_footer' placeholder="Enter your mail" class="border-none focus:ring-0 text-slate-600">
+                        <input type="text" id='email_footer' placeholder="Enter your mail"
+                            class="border-none focus:ring-0 text-slate-600">
                     </div>
                 </div>
                 <button class="btn btn-primary block w-full text-center" onclick="subscribe('footer')">
