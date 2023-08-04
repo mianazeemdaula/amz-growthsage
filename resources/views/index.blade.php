@@ -25,7 +25,7 @@
             </div>
 
             <div class="imge-box absolute xl:right-[-260px]  hidden xl:block   bottom-0  ">
-                <img src="{{ asset('images/all-img/section-bg-1.png') }}" alt="">
+                <img src="{{ asset('images/banner/1.png') }}" alt="">
             </div>
         </section>
 
