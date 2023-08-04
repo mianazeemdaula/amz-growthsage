@@ -5,13 +5,15 @@
 @endsection
 @section('body')
 <div class="font-gilroy font-medium text-gray text-lg leading-[27px]">
-
-    <section class="px-4 md:px-32 xl:min-h-screen overflow-hidden">
+    @php
+    $url= asset('images/banner/1.png');
+    @endphp
+    <section class="px-4 md:px-32 xl:min-h-screen overflow-hidden bg-cover bg-center" style="background-image: url('{{$url}}');">
         <div class="flex items-center h-screen w-full">
             <div class="md:w-2/3 mt-24">
                 <h2>Amazon</h2>
                 <h1>
-                    <span class=" text-secondary inline-block bg-[url('../../public/images/banner/shape.svg')] bg-no-repeat bg-bottom">
+                    <span class="text-secondary inline-block bg-[url('../../public/images/banner/shape.svg')] bg-no-repeat bg-right-bottom">
                         Product Hunting</span>
                 </h1>
                 <p class="text-slate-600 mt-8 text-2xl">Thoughtfully designed curriculum that combines industry insights
@@ -23,9 +25,6 @@
 
         </div>
 
-        <div class="imge-box absolute xl:right-[-260px]  hidden xl:block   bottom-0  ">
-            <img src="{{ asset('images/banner/1.png') }}" alt="">
-        </div>
     </section>
 
     <x-web.about></x-web.about>
