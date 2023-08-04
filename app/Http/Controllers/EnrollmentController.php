@@ -89,9 +89,7 @@ class EnrollmentController extends Controller
                 $existing_image_url = public_path('images/payments/') . $enrollment->image;
 
                 //remove existing image
-                // if (file_exists($existing_image_url)) {
                 if (File::exists($existing_image_url)) {
-                    // unlink($existing_image_url);
                     File::delete($existing_image_url);
                 }
 
