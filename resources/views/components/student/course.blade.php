@@ -27,7 +27,7 @@
                 </div>
                 <div class="flex-col flex-1">
                     <div class="text-slate-500 text-sm">Lectures</div>
-                    <div class="text-sm font-bold">03 / week</div>
+                    <div class="text-sm font-bold">{{$course->lectures_count}}</div>
                 </div>
             </div>
             <div class="flex">
@@ -36,7 +36,7 @@
                 </div>
                 <div class="flex-col flex-1">
                     <div class="text-slate-500 text-sm">Fee</div>
-                    <div class="text-sm font-bold">PKR 10,500/-</div>
+                    <div class="text-sm font-bold">{{round($course->fee/3,0)}}</div>
                 </div>
             </div>
             <div class="flex">

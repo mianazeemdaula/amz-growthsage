@@ -91,7 +91,7 @@
 
                     <div class="divider lg:col-span-2"></div>
                     <div class="h3 col-span-2 text-center">
-                        <div>Total Fee: &nbsp PKR 10,500/-</div>
+                        <div>Total Fee: &nbsp PKR {{round($course->fee/3,0)}}</div>
                     </div>
                 </div>
                 <div class="divider my-6"></div>

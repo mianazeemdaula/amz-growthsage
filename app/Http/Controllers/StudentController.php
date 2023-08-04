@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Country;
+use App\Models\Course;
 use App\Models\Enrollment;
 use App\Models\Language;
 use App\Models\Student;
@@ -23,8 +24,9 @@ class StudentController extends Controller
     {
         //
         $user = Auth::user();
+        $course = Course::find(1);
         // echo Auth::user()->name;
-        return view('student.index', compact('user'));
+        return view('student.index', compact('user', 'course'));
     }
 
     /**
@@ -36,7 +38,8 @@ class StudentController extends Controller
         $user = Auth::user();
         $languages = Language::all();
         $countries = Country::all();
-        return view('student.create', compact('user', 'languages', 'countries'));
+        $course = Course::find(1);
+        return view('student.create', compact('user', 'languages', 'countries', 'course'));
     }
 
     /**

@@ -7,14 +7,18 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\Language;
 use App\Models\Country;
+use Exception;
+
 class StudentController extends Controller
 {
-    function index()  {
+    function index()
+    {
         $collection = User::role('student')->paginate();
         return view('admin.students.index', compact('collection'));
     }
 
-    function show($id){
+    function show($id)
+    {
         $model = User::findOrFail($id);
         return view('admin.students.show', compact('model'));
     }
@@ -42,7 +46,7 @@ class StudentController extends Controller
         ]);
         try {
             $user = User::findOrFail($id);
-            if(!$user->hasRole($request->role)){
+            if (!$user->hasRole($request->role)) {
                 $user->roles()->detach();
                 $user->assignRole($request->role);
             }

@@ -7,7 +7,7 @@
 
 <div class="font-gilroy font-medium text-gray text-lg leading-[27px]">
 
-    <section class="px-4 md:px-32 xl:min-h-screen bg-[url('../images/banner/1.png')] bg-cover bg-no-repeat bg-center overflow-hidden">
+    <section class="px-4 md:px-32 xl:min-h-screen overflow-hidden">
         <div class="absolute z-50 flex items-center h-screen w-full">
             <div class="md:w-2/3 mt-24">
                 <h2>Amazon</h2>

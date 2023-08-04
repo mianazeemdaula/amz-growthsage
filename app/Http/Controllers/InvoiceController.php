@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Course;
 use App\Models\Enrollment;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -39,9 +40,10 @@ class InvoiceController extends Controller
     {
         //
         $user = Auth::user();
+        $course = Course::find(1);
         $enrollment = Enrollment::where('user_id', $user->id)
             ->where('course_id', $id)->first();
-        return view('student.invoices.show', compact('user', 'enrollment'));
+        return view('student.invoices.show', compact('user', 'enrollment', 'course'));
     }
 
     /**

@@ -23,6 +23,8 @@
         <div class="text-slate-500">{{today()->format('d/m/Y')}}</div>
     </div>
 
+    Hello {{$course->lectures_count}}
+
     <!-- pallet boxes -->
     <x-student.pallets :user='$user'></x-student.pallets>
     <!-- middle content panel starts-->
@@ -73,7 +75,7 @@
             </div>
 
             <div class="p-6 rounded-lg  bg-white mt-6">
-                <x-student.course></x-student.course>
+                <x-student.course :course='$course'></x-student.course>
                 <div class="my-6 border-t border-slate-200 border-dashed"></div>
                 <x-student.course_status :status="$user->enrollmentStatusFor(1)"></x-student.course_status>
             </div>

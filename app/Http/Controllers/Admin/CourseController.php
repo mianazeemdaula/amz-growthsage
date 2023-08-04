@@ -9,7 +9,8 @@ use App\Models\Course;
 
 class CourseController extends Controller
 {
-    function index()  {
+    function index()
+    {
         $collection = Course::paginate();
         return view('admin.courses.index', compact('collection'));
     }
@@ -75,13 +76,9 @@ class CourseController extends Controller
     {
         //
         $request->validate([
-            'user_id' => 'required|unique:students',
             'name' => 'required',
-            'description' => 'required',
             'lectures_count' => 'required',
             'fee' => 'required',
-            'teamleader_reward' => 'required',
-            'referral_reward' => 'required',
             'active' => 'required',
         ]);
         try {
