@@ -53,8 +53,8 @@
                                     <td>{{ $item->id }}</td>
                                     <td>{{ $item->name }}</td>
                                     <td>{{ $item->email }}</td>
-                                    <td>{{ $item->profile->phone }}</td>
-                                    <td>{{ $item->enrollments->count() }}</td>
+                                    <td>{{ $item->profile->phone ?? '' }}</td>
+                                    <td>{{ $item->enrollments->count() ?? '' }}</td>
                                     <td>
                                         <a href="{{ route('admin.students.show', $item->id) }}"><span
                                                 class="bi-eye mr-2"></span></a>
