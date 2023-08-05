@@ -79,6 +79,8 @@ class CourseController extends Controller
             'name' => 'required',
             'lectures_count' => 'required',
             'fee' => 'required',
+            'referral_reward' => 'required',
+            'teamleader_reward' => 'required',
             'active' => 'required',
         ]);
         try {
