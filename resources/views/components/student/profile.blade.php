@@ -39,7 +39,7 @@
             <div class="w-8"><i class="bi-envelope-at"></i></div>
             <div>{{ $user->email }}</div>
         </div>
-        @if ($mode == 'full')
+        @if (isset($mode) && $mode == 'full')
             <div class="flex text-sm mt-4">
                 <div class="w-8"><i class="bi-phone"></i></div>
                 <div>

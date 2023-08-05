@@ -18,9 +18,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     if (Auth::check()) {
-
         if (Auth::user()->hasRole('student'))
-
             return redirect('students');
         if (Auth::user()->hasRole('admin'))
             return redirect('admin');
