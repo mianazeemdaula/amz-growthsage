@@ -41,7 +41,7 @@ class CourseController extends Controller
         //
         $course = Course::find($id);
         $user = Auth::user();
-        return view('student.courses.show', compact('user', 'course', 'full'));
+        return view('student.courses.show', compact('user', 'course'));
     }
 
     /**
