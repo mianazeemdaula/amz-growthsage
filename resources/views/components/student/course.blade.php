@@ -8,7 +8,8 @@
     <div class="divider mt-4"></div>
     <div class="mt-3 text-slate-600">
         We have 30+ years experience of transforming practical skills to beginners & professionals.
-        Upon completion of this program, you will be well-versed with the tools, techniques, and strategies to identify profitable products, understand market trends, and make informed decisions to maximize your earnings.
+        Upon completion of this program, you will be well-versed with the tools, techniques, and strategies to identify
+        profitable products, understand market trends, and make informed decisions to maximize your earnings.
     </div>
     <div class="w-full lg:w-3/4 mx-auto mt-8">
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -27,7 +28,7 @@
                 </div>
                 <div class="flex-col flex-1">
                     <div class="text-slate-500 text-sm">Lectures</div>
-                    <div class="text-sm font-bold">{{$course->lectures_count}}</div>
+                    <div class="text-sm font-bold">{{ $course->lectures_count }}</div>
                 </div>
             </div>
             <div class="flex">
@@ -36,7 +37,7 @@
                 </div>
                 <div class="flex-col flex-1">
                     <div class="text-slate-500 text-sm">Fee</div>
-                    <div class="text-sm font-bold">{{round($course->fee/3,0)}}</div>
+                    <div class="text-sm font-bold">{{ round($course->fee / 3, 0) }} / Month</div>
                 </div>
             </div>
             <div class="flex">

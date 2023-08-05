@@ -126,4 +126,46 @@ class StudentController extends Controller
             // something went wrong
         }
     }
+
+    public function exportTeamCSV()
+    {
+        $fileName = 'team.csv';
+        $query = User::role('student')->whereHas('profile');
+        if(auth()->user()->hasRole('teamleader')){
+            $query = $query->where('referral_id',auth()->id());
+        }else{
+        }
+        $students = $query->get();
+        
+        $headers = array(
+            "Content-type"        => "text/csv",
+            "Content-Disposition" => "attachment; filename=$fileName",
+            "Pragma"              => "no-cache",
+            "Cache-Control"       => "must-revalidate, post-check=0, pre-check=0",
+            "Expires"             => "0"
+        );
+
+        $columns = array('Name', 'Email', 'Referral', 'Join Date', 'Phone', 'City', 'Address', 'Course', 'Fee Paid');
+
+        $callback = function() use($students, $columns) {
+            $file = fopen('php://output', 'w');
+            fputcsv($file, $columns);
+
+            foreach ($students as $user) {
+                $row = array(
+                'Name' => $user->name,
+                'Email' =>$user->email,
+                'Referral' => $user->code,
+                'Join Date' => $user->created_at,
+                'Phone' => $user->profile->phone ?? '',
+                'City' => $user->profile->city,
+                'Address' => $user->profile->address,
+                'Course' =>$user->enrollments->count() > 0 ?  $user->enrollments[0]->course->name : 'Not Enrolled' ,
+                'Fee Paid'=> $user->enrollments->count() ? ($user->enrollments[0]->fee_paid ? 'Paid' : 'Not Paid') : 'Not Paid');
+                fputcsv($file, array_values($row));
+            }
+            fclose($file);
+        };
+        return response()->stream($callback, 200, $headers);
+    }
 }

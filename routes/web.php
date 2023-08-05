@@ -55,8 +55,13 @@ Route::group(['middleware' => ['role:student']], function () {
     Route::resource('courses', CourseController::class);
     Route::resource('invoices', InvoiceController::class);
     Route::get('invoice/proof/{enrollment_id}', [InvoiceController::class, 'uploadProof']);
+    Route::get('teamcsv', [StudentController::class, 'exportTeamCSV']);
     Route::view('student/change/pw', 'student.change_password');
     Route::post('student/change/pw', [StudentController::class, 'changePassword'])->name('student.change_password');
+});
+
+Route::group(['middleware' => ['role:teamleader|admin']],function () {
+    Route::get('teamcsv', [StudentController::class, 'exportTeamCSV']);
 });
 
 

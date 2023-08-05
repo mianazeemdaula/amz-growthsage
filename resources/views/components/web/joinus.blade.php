@@ -25,7 +25,9 @@
                     to identify profitable products, understand market trends, and make informed decisions to maximize
                     your earnings.
                 </div>
-                <div class="text-secondary font-bold text-2xl my-3">Rs.{{ \App\Models\Course::find(1)->fee }}</div>
+                <div class="text-secondary font-bold text-2xl my-3">
+                    Rs.{{ round(\App\Models\Course::find(1)->fee / 3, 0) }} / Month
+                </div>
                 <div class="flex flex-col space-y-4">
                     <span class=" flex items-center space-x-2">
                         <img src="{{ asset('images/svg/file.svg') }}" alt="">

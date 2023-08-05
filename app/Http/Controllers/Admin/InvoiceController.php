@@ -29,12 +29,13 @@ class InvoiceController extends Controller
         try {
             if($request->status == 'rejected'){
                 // remove proof image and update user about rejected
-                return redirect()->back()->withErrors(['error' => 'somthing went wron'])->withInput();
+                return redirect()->back()->withErrors(['error' => 'somthing went wrong'])->withInput();
             }
 
             $invoice = Enrollment::find($id);
             $invoice->update(['fee_paid' => true, 'cashier_id' => auth()->id()]);
             $course =  $invoice->course;
+            $fee =  round($course->fee / 3, 0);
             if($course->active && $course->referral_reward > 0){
                 $user = $invoice->user;
                 if($user && $user->referral_id){
@@ -53,17 +54,20 @@ class InvoiceController extends Controller
                     // check the referral have the teamleader 
                     if($referral->referral_id){
                         $teamLeader = User::find($referral->referral_id);
-                        Balance::updateOrCreate(
-                            ['user_id'=> $teamLeader->id],
-                            ['amount' => DB::raw("amount + $course->teamleader_reward")]
-                        );
+                        // user must be a team leader
+                        if($teamLeader->hasRole('teamleader')){
+                            Balance::updateOrCreate(
+                                ['user_id'=> $teamLeader->id],
+                                ['amount' => DB::raw("amount + $course->teamleader_reward")]
+                            );
+                        }
                     }
                 }
             }
             // update balance of the admin to received amount
             Balance::updateOrCreate(
                 ['user_id'=> 1],
-                ['amount' => DB::raw("amount + $course->fee")]
+                ['amount' => DB::raw("amount + $fee")]
             );
             return redirect('admin/invoices')->with(['success' => 'Payment done successfuly']);
         } catch (Exception $e) {
