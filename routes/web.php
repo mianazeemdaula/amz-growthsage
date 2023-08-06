@@ -47,7 +47,7 @@ Route::resource('users', UserController::class);
 
 
 
-Route::group(['middleware' => ['role:student']], function () {
+Route::group(['middleware' => ['role:student|teamleader']], function () {
     Route::resource('students', StudentController::class);
     Route::resource('enrollments', EnrollmentController::class);
     Route::resource('courses', CourseController::class);
